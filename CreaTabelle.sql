@@ -1,6 +1,6 @@
 CREATE TABLE Credenziali (
     Username                      VARCHAR(25)    PRIMARY KEY,
-    Password                      VARCHAR(25)    NOT NULL
+    Passwd                        VARCHAR(25)    NOT NULL
 )
 
 CREATE TABLE Dipendente (
@@ -16,11 +16,20 @@ CREATE TABLE Dipendente (
 )
 
 CREATE TABLE Presenza (
+    PrimaOra                      DATE           NOT NULL,
+    UltimaOra                     DATE           NOT NULL,
+    CFdipendente                  CHAR(16)       NOT NULL,
+    CONSTRAINT FK_presenza        FOREIGN KEY (CFdipendente) references dDipendente (CFdipendente) ON DELETE SET NULL,
+    CONSTRAINT PK_presenza        PRIMARY KEY (PrimaOra, CFdipendente) ON DELETE SET NULL
+);
 
-)
-
-CREATE TABLE Stipendio (
-
+CREATE TABLE stipendio (
+    Importo                       NUMBER(4, 2)   NOT NULL,
+    Trattenute                    NUMBER(3,2)    NOT NULL,
+    Datastipendio                 DATE           NOT NULL,
+    CFdipendente                  CHAR(16)       NOT NULL,
+    constraint FK_stipendio       FOREIGN KEY (CFdipendente) REFERENCES Dipendente (CFdipendente),
+    constraint PK_stipendio       PRIMARY KEY (DataStipendio, CFdipendente)
 )
 
 CREATE TABLE Cassa (
