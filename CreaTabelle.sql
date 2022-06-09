@@ -1,24 +1,3 @@
-DROP TABLE Credenziali;
-DROP TABLE Dipendente;
-DROP TABLE Presenza;
-DROP TABLE Stipendio;
-DROP TABLE Cassa;
-DROP TABLE Tessera;
-DROP TABLE Scontrino;
-DROP TABLE Cliente;
-DROP TABLE Brand;
-DROP TABLE Prodotto;
-DROP TABLE Offerta;
-DROP TABLE Offerta_Prodotto;
-DROP TABLE Scontrino_Prodotto;
-DROP TABLE Videogioco;
-DROP TABLE Console;
-DROP TABLE Accessorio;
-DROP TABLE Fornitore;
-DROP TABLE Corriere;
-DROP TABLE CaricoMerce;
-DROP TABLE CaricoMerce_Prodotto;
-
 CREATE TABLE Credenziali (
     Username                      VARCHAR(25)    PRIMARY KEY,
     Passwd                        VARCHAR(25)    NOT NULL
@@ -29,6 +8,7 @@ CREATE TABLE Dipendente (
     NomeDipendente                VARCHAR(25)    NOT NULL,
     CognomeDipendente             VARCHAR(25)    NOT NULL,
     DNdipendente                  DATE           NOT NULL,
+    Sesso                         CHAR(1)        NOT NULL CHECK (Sesso IN ('M', 'F')),
     ViaDip                        VARCHAR(25)    NOT NULL,
     CapDip                        CHAR(5)        NOT NULL,
     CittaDip                      VARCHAR(25)    NOT NULL,
@@ -45,7 +25,7 @@ CREATE TABLE Presenza (
 );
 
 CREATE TABLE Stipendio (
-    ImportoStipendio              NUMBER(4,2)    NOT NULL,
+    ImportoStipendio              NUMBER(4,2)    NOT NULL CHECK (ImportoStipendio >= 1000),
     TrattenuteStipendio           NUMBER(3,2)    NOT NULL,
     DataStipendio                 DATE           NOT NULL,
     CFdipendente                  CHAR(16)       NOT NULL,

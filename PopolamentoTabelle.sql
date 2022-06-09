@@ -17,21 +17,21 @@ INTO Credenziali VALUES    ('alberto.gentile', 'ZhI5c6eRY^c6')
 SELECT 1 FROM DUAL;
 
 INSERT ALL
-INTO Dipendente VALUES    ('DUESAF55F52N289W', 'Umberto', 'Testa', TO_DATE('10/10/1980', 'DD/MM/YYYY'), 'Via Emidio', '88982', 'Roma', 'umberto.testa'),
-INTO Dipendente VALUES    ('KZLGDK32P62O335T', 'Doriana', 'Bianchi', TO_DATE('16/09/1988', 'DD/MM/YYYY'), 'Piazza Eriberto', '59597', 'Como', 'doriana.bianchi'),
-INTO Dipendente VALUES    ('KQWMYW14M46T912E', 'Giacinto', 'Montanari', TO_DATE('06/01/1974', 'DD/MM/YYYY'), 'Via Napoli', '89630', 'Lecco', 'giacinto.montanari'),
-INTO Dipendente VALUES    ('TYITHI81H72P241J', 'Alighieri', 'Gallo', TO_DATE('10/12/1995', 'DD/MM/YYYY'), 'Via Cirino', '55598', 'Napoli', 'alighieri.gallo'),
-INTO Dipendente VALUES    ('JQYGGW73B53M696N', 'Santo', 'Lombardo', TO_DATE('03/01/2000', 'DD/MM/YYYY'), 'Via Karim', '88829', 'Enna', 'santo.lombardo'),
-INTO Dipendente VALUES    ('PUVLVZ97F09R237B', 'Marina', 'Ferrara', TO_DATE('11/02/1976', 'DD/MM/YYYY'), 'Via Martini', '76757', 'Cuneo', 'marina.ferrara'),
-INTO Dipendente VALUES    ('YFBLRF48O55Z048M', 'Sesto', 'Caputo', TO_DATE('26/11/1986', 'DD/MM/YYYY'), 'Via Miriana', '92504', 'Perugia', 'sesto.caputo'),
-INTO Dipendente VALUES    ('UWWKVF45W14S828U', 'Cleopatra', 'Amato', TO_DATE('23/11/1990', 'DD/MM/YYYY'), 'Via Carmelo', '57998', 'Siena', 'cleopatra.amato'),
-INTO Dipendente VALUES    ('HCOWJZ02T47V573F', 'Germano', 'Damico', TO_DATE('04/10/1992', 'DD/MM/YYYY'), 'Via Silvestri', '55598', 'Napoli', 'germano.damico'),
-INTO Dipendente VALUES    ('GZTZTI69R80D542D', 'Nicoletta', 'Monti', TO_DATE('08/09/1996', 'DD/MM/YYYY'), 'Via Roma', '70783', 'Trento', 'nicoletta.monti'),
-INTO Dipendente VALUES    ('UXETBB25N85F898Y', 'Osea', 'Martini', TO_DATE('15/06/1960', 'DD/MM/YYYY'), 'Via Piererminio', '97995', 'Mantova', 'osea.martini'),
-INTO Dipendente VALUES    ('SCLOHS15F88Z768W', 'Gelsomina', 'Sala', TO_DATE('30/02/1995', 'DD/MM/YYYY'), 'Via Parisi', '29466', 'Livorno', 'gelsomina.sala'),
-INTO Dipendente VALUES    ('ZMHTFC56S72T119B', 'Umberto', 'Russo', TO_DATE('20/12/2000', 'DD/MM/YYYY'), 'Via Eustacchio', '70261', 'Olbia', 'umberto.russo'),
-INTO Dipendente VALUES    ('PKVEXQ30A01Z162C', 'Siro', 'Santoro', TO_DATE('11/10/1982', 'DD/MM/YYYY'), 'Via Martino', '63963', 'Padova', 'siro.santoro'),
-INTO Dipendente VALUES    ('DPZOCJ48G58T201C', 'Alberto', 'Gentile', TO_DATE('18/01/1970', 'DD/MM/YYYY'), 'Piazza Gilda', '95000', 'Treviso', 'alberto.gentile');
+INTO Dipendente VALUES    ('DUESAF55F52N289W', 'Umberto', 'Testa', TO_DATE('10/10/1980', 'DD/MM/YYYY'), 'M', 'Via Emidio', '88982', 'Roma', 'umberto.testa'),
+INTO Dipendente VALUES    ('KZLGDK32P62O335T', 'Doriana', 'Bianchi', TO_DATE('16/09/1988', 'DD/MM/YYYY'), 'F', 'Piazza Eriberto', '59597', 'Como', 'doriana.bianchi'),
+INTO Dipendente VALUES    ('KQWMYW14M46T912E', 'Giacinto', 'Montanari', TO_DATE('06/01/1974', 'DD/MM/YYYY'), 'M', 'Via Napoli', '89630', 'Lecco', 'giacinto.montanari'),
+INTO Dipendente VALUES    ('TYITHI81H72P241J', 'Alighieri', 'Gallo', TO_DATE('10/12/1995', 'DD/MM/YYYY'), 'M', 'Via Cirino', '55598', 'Napoli', 'alighieri.gallo'),
+INTO Dipendente VALUES    ('JQYGGW73B53M696N', 'Santo', 'Lombardo', TO_DATE('03/01/2000', 'DD/MM/YYYY'), 'M', 'Via Karim', '88829', 'Enna', 'santo.lombardo'),
+INTO Dipendente VALUES    ('PUVLVZ97F09R237B', 'Marina', 'Ferrara', TO_DATE('11/02/1976', 'DD/MM/YYYY'), 'F', 'Via Martini', '76757', 'Cuneo', 'marina.ferrara'),
+INTO Dipendente VALUES    ('YFBLRF48O55Z048M', 'Sesto', 'Caputo', TO_DATE('26/11/1986', 'DD/MM/YYYY'), 'M', 'Via Miriana', '92504', 'Perugia', 'sesto.caputo'),
+INTO Dipendente VALUES    ('UWWKVF45W14S828U', 'Cleopatra', 'Amato', TO_DATE('23/11/1990', 'DD/MM/YYYY'), 'F', 'Via Carmelo', '57998', 'Siena', 'cleopatra.amato'),
+INTO Dipendente VALUES    ('HCOWJZ02T47V573F', 'Germano', 'Damico', TO_DATE('04/10/1992', 'DD/MM/YYYY'), 'M', 'Via Silvestri', '55598', 'Napoli', 'germano.damico'),
+INTO Dipendente VALUES    ('GZTZTI69R80D542D', 'Nicoletta', 'Monti', TO_DATE('08/09/1996', 'DD/MM/YYYY'), 'F', 'Via Roma', '70783', 'Trento', 'nicoletta.monti'),
+INTO Dipendente VALUES    ('UXETBB25N85F898Y', 'Osea', 'Martini', TO_DATE('15/06/1960', 'DD/MM/YYYY'), 'F', 'Via Piererminio', '97995', 'Mantova', 'osea.martini'),
+INTO Dipendente VALUES    ('SCLOHS15F88Z768W', 'Gelsomina', 'Sala', TO_DATE('30/02/1995', 'DD/MM/YYYY'), 'F', 'Via Parisi', '29466', 'Livorno', 'gelsomina.sala'),
+INTO Dipendente VALUES    ('ZMHTFC56S72T119B', 'Umberto', 'Russo', TO_DATE('20/12/2000', 'DD/MM/YYYY'), 'M', 'Via Eustacchio', '70261', 'Olbia', 'umberto.russo'),
+INTO Dipendente VALUES    ('PKVEXQ30A01Z162C', 'Siro', 'Santoro', TO_DATE('11/10/1982', 'DD/MM/YYYY'), 'M', 'Via Martino', '63963', 'Padova', 'siro.santoro'),
+INTO Dipendente VALUES    ('DPZOCJ48G58T201C', 'Alberto', 'Gentile', TO_DATE('18/01/1970', 'DD/MM/YYYY'), 'M', 'Piazza Gilda', '95000', 'Treviso', 'alberto.gentile');
 SELECT 1 FROM DUAL;
 
 INSERT ALL
