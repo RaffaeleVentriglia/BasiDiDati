@@ -1,3 +1,24 @@
+DROP TABLE Credenziali;
+DROP TABLE Dipendente;
+DROP TABLE Presenza;
+DROP TABLE Stipendio;
+DROP TABLE Cassa;
+DROP TABLE Tessera;
+DROP TABLE Scontrino;
+DROP TABLE Cliente;
+DROP TABLE Brand;
+DROP TABLE Prodotto;
+DROP TABLE Offerta;
+DROP TABLE Offerta_Prodotto;
+DROP TABLE Scontrino_Prodotto;
+DROP TABLE Videogioco;
+DROP TABLE Console;
+DROP TABLE Accessorio;
+DROP TABLE Fornitore;
+DROP TABLE Corriere;
+DROP TABLE CaricoMerce;
+DROP TABLE CaricoMerce_Prodotto;
+
 CREATE TABLE Credenziali (
     Username                      VARCHAR(25)    PRIMARY KEY,
     Passwd                        VARCHAR(25)    NOT NULL
