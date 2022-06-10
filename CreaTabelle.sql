@@ -8,7 +8,6 @@ CREATE TABLE Dipendente (
     NomeDipendente                VARCHAR(25)    NOT NULL,
     CognomeDipendente             VARCHAR(25)    NOT NULL,
     DNdipendente                  DATE           NOT NULL,
-    Sesso                         CHAR(1)        NOT NULL CHECK (Sesso IN ('M', 'F')),
     ViaDip                        VARCHAR(25)    NOT NULL,
     CapDip                        CHAR(5)        NOT NULL,
     CittaDip                      VARCHAR(25)    NOT NULL,

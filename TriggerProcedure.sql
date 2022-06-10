@@ -9,12 +9,17 @@ BEFORE INSERT ON Dipendente
 FOR EACH ROW
 DECLARE
     DNnascita DATE;
+    Check_Minorenne EXCEPTION;
 BEGIN
     SELECT DNdipendente INTO DNnascita
     FROM Dipendente
     WHERE DNnascita = :new.DNdipendente;
-    IF :new.DNdipendente > '01/01/2004'
+    IF (FLOOR((sysdate - :new.DNdipendente) / 365) < 17)
     THEN
-        RAISE_APPLICATION_ERROR(-2061, 'Dipendente minorenne');
+        RAISE Check_Minorenne;
     END IF;
+EXCEPTION
+    WHEN Check_Minorenne
+    THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Dipendente minorenne');
 END;
