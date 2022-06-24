@@ -16,8 +16,8 @@ CREATE TABLE Dipendente (
 );
 
 CREATE TABLE Presenza (
-    PrimaOra                      DATE           NOT NULL,
-    UltimaOra                     DATE           NOT NULL,
+    PrimaOra                      TIMESTAMP      NOT NULL,
+    UltimaOra                     TIMESTAMP      NOT NULL,
     CFdipendente                  CHAR(16)       NOT NULL,
     CONSTRAINT FK_presenza        FOREIGN KEY (CFdipendente) references Dipendente (CFdipendente) ON DELETE SET NULL,
     CONSTRAINT PK_presenza        PRIMARY KEY (PrimaOra, CFdipendente)
@@ -74,8 +74,8 @@ CREATE TABLE Brand (
 
 CREATE TABLE Prodotto (
     CodiceABarre                  CHAR(13)       PRIMARY KEY,
-    PrezzoProdotto                NUMERIC(6,2)   NOT NULL,
-    NomeProdotto                  VARCHAR(20)    NOT NULL,
+    PrezzoProdotto                NUMERIC(5,2)   NOT NULL,
+    NomeProdotto                  VARCHAR(50)    NOT NULL,
     NomeBrand                     VARCHAR(25)    NOT NULL,
     CONSTRAINT FK_prodotto        FOREIGN KEY (NomeBrand) REFERENCES Brand (NomeBrand) ON DELETE SET NULL
 );
@@ -134,14 +134,14 @@ CREATE TABLE Fornitore (
 
 CREATE TABLE Corriere (
     PIvaCorriere                  CHAR(11)      PRIMARY KEY,
-    NomeCorriere                  varchar(25)   UNIQUE NOT NULL
+    NomeCorriere                  VARCHAR(25)   UNIQUE NOT NULL
 );
 
 CREATE TABLE CaricoMerce (
     NumCarico                     CHAR(5)       PRIMARY KEY,
     NumTracking                   CHAR(18)      UNIQUE NOT NULL,
-    DataConsegna                  DATE          NOT NULL,
     DataSpedizione                DATE          NOT NULL,
+    DataConsegna                  DATE          NOT NULL,
     PIvaFornitore                 CHAR(11)      NOT NULL,
     PIvaCorriere                  CHAR(11)      NOT NULL,
     CONSTRAINT FK1_caricomerce    FOREIGN KEY (PIvaFornitore) REFERENCES Fornitore (PIvaFornitore) ON DELETE SET NULL,
