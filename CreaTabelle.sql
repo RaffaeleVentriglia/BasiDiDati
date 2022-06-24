@@ -33,7 +33,7 @@ CREATE TABLE Stipendio (
 );
 
 CREATE TABLE Cassa (
-    NumCassa                      CHAR(1)        PRIMARY KEY,
+    NumCassa                      CHAR(2)        PRIMARY KEY,
     CFdipendente                  CHAR(16)       NOT NULL,
     CONSTRAINT FK_scontrino       FOREIGN KEY (CFDipendente) REFERENCES Dipendente (CFDipendente) ON DELETE SET NULL
 );
