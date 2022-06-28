@@ -11,23 +11,24 @@ CREATE TABLE Dipendente (
     ViaDip                        VARCHAR(25)    NOT NULL,
     CapDip                        CHAR(5)        NOT NULL,
     CittaDip                      VARCHAR(25)    NOT NULL,
-    Username                      VARCHAR(25)    NOT NULL,
+    Username                      VARCHAR(25)    UNIQUE,
+    Ruolo                         VARCHAR(20)    NOT NULL,
     CONSTRAINT FK_dipendente      FOREIGN KEY (Username) REFERENCES Credenziali (Username) ON DELETE SET NULL
 );
 
 CREATE TABLE Presenza (
-    PrimaOra                      TIMESTAMP      NOT NULL,
+    PrimaOra                      TIMESTAMP,
     UltimaOra                     TIMESTAMP      NOT NULL,
-    CFdipendente                  CHAR(16)       NOT NULL,
+    CFdipendente                  CHAR(16),
     CONSTRAINT FK_presenza        FOREIGN KEY (CFdipendente) references Dipendente (CFdipendente) ON DELETE SET NULL,
     CONSTRAINT PK_presenza        PRIMARY KEY (PrimaOra, CFdipendente)
 );
 
 CREATE TABLE Stipendio (
-    ImportoStipendio              NUMERIC(6,2)   NOT NULL CHECK (ImportoStipendio >= 1000),
-    TrattenuteStipendio           NUMERIC(5,2)   NOT NULL,
-    DataStipendio                 DATE           NOT NULL,
-    CFdipendente                  CHAR(16)       NOT NULL,
+    ImportoStipendio              NUMBER(6,2)   NOT NULL CHECK (ImportoStipendio >= 1000),
+    TrattenuteStipendio           NUMBER(5,2)   NOT NULL,
+    DataStipendio                 DATE,
+    CFdipendente                  CHAR(16),
     CONSTRAINT FK_stipendio       FOREIGN KEY (CFdipendente) REFERENCES Dipendente (CFdipendente),
     CONSTRAINT PK_stipendio       PRIMARY KEY (DataStipendio, CFdipendente)
 );
@@ -45,10 +46,10 @@ CREATE TABLE Tessera (
 );
 
 CREATE TABLE Scontrino (
-    NumScontrino                  VARCHAR(3)     UNIQUE NOT NULL,
-    DataScontrino                 DATE           UNIQUE NOT NULL,
-    NumCassa                      CHAR(1)        NOT NULL,
-    CodiceTessera                 CHAR(5)        NOT NULL,
+    NumScontrino                  VARCHAR(3),
+    DataScontrino                 DATE,
+    NumCassa                      CHAR(2)        NOT NULL,
+    CodiceTessera                 CHAR(5),
     CONSTRAINT FK1_scontrino      FOREIGN KEY (NumCassa) REFERENCES Cassa (NumCassa) ON DELETE SET NULL,
     CONSTRAINT FK2_scontrino      FOREIGN KEY (CodiceTessera) REFERENCES Tessera (CodiceTessera) ON DELETE SET NULL,
     CONSTRAINT PK_scontrino       PRIMARY KEY (NumScontrino, DataScontrino)
@@ -74,7 +75,7 @@ CREATE TABLE Brand (
 
 CREATE TABLE Prodotto (
     CodiceABarre                  CHAR(13)       PRIMARY KEY,
-    PrezzoProdotto                NUMERIC(5,2)   NOT NULL,
+    PrezzoProdotto                NUMBER(6,2)    NOT NULL,
     NomeProdotto                  VARCHAR(50)    NOT NULL,
     NomeBrand                     VARCHAR(25)    NOT NULL,
     CONSTRAINT FK_prodotto        FOREIGN KEY (NomeBrand) REFERENCES Brand (NomeBrand) ON DELETE SET NULL
@@ -87,40 +88,40 @@ CREATE TABLE Offerta (
 );
 
 CREATE TABLE Offerta_Prodotto (
-    CodiceABarre                  CHAR(13)      NOT NULL,
-    CodiceOfferta                 VARCHAR(10)   NOT NULL,
+    CodiceABarre                  CHAR(13),
+    CodiceOfferta                 VARCHAR(10),
     CONSTRAINT FK1_offprod        FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE CASCADE,
     CONSTRAINT FK2_offprod        FOREIGN KEY (CodiceOfferta) REFERENCES Offerta (CodiceOfferta) ON DELETE CASCADE,
     CONSTRAINT PK_offprod         PRIMARY KEY (CodiceABarre, CodiceOfferta)
 );
 
 CREATE TABLE Scontrino_Prodotto (
-    NumScontrino                  VARCHAR(3)    NOT NULL,
-    DataScontrino                 DATE          NOT NULL,
-    CodiceABarre                  CHAR(13)      NOT NULL,
-    CONSTRAINT FK1_scontprod      FOREIGN KEY (NumScontrino) REFERENCES Scontrino (NumScontrino) ON DELETE CASCADE,
-    CONSTRAINT FK2_scontprod      FOREIGN KEY (DataScontrino) REFERENCES Scontrino (DataScontrino) ON DELETE CASCADE,
-    CONSTRAINT FK3_scontprod      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE CASCADE,
+    NumScontrino                  VARCHAR(3),
+    DataScontrino                 DATE,
+    CodiceABarre                  CHAR(13),
+    QuantitaVendute               NUMBER(2),
+    CONSTRAINT FK1_scontprod      FOREIGN KEY (NumScontrino, DataScontrino) REFERENCES Scontrino (NumScontrino, DataScontrino) ON DELETE CASCADE,
+    CONSTRAINT FK2_scontprod      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE CASCADE,
     CONSTRAINT PK_scontprod       PRIMARY KEY (NumScontrino, DataScontrino, CodiceABarre)
 );
 
 CREATE TABLE Videogioco (
     PiattaformaV                  VARCHAR(25)   NOT NULL,
-    CodiceABarre                  CHAR(13)      NOT NULL,
+    CodiceABarre                  CHAR(13),
     CONSTRAINT FK_videogioco      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE SET NULL,
     CONSTRAINT PK_videogioco      PRIMARY KEY (CodiceABarre)
 );
 
 CREATE TABLE Console (
     CapienzaConsole               VARCHAR(6)    NOT NULL,
-    CodiceABarre                  CHAR(13)      NOT NULL,
+    CodiceABarre                  CHAR(13),
     CONSTRAINT PK_console         PRIMARY KEY (CodiceABarre),
     CONSTRAINT FK_console         FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE SET NULL
 );
 
 CREATE TABLE Accessorio (
     PiattaformaA                  VARCHAR(25)   NOT NULL,
-    CodiceABarre                  CHAR(13)      NOT NULL,
+    CodiceABarre                  CHAR(13),
     CONSTRAINT PK_accessorio      PRIMARY KEY (CodiceABarre),
     CONSTRAINT FK_accessorio      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE SET NULL
 );
@@ -149,10 +150,10 @@ CREATE TABLE CaricoMerce (
 );
 
 CREATE TABLE CaricoMerce_Prodotto (
-    NumCarico                     CHAR(5)       NOT NULL,
-    CodiceABarre                  CHAR(13)      NOT NULL,
-    CostoProdotto                 NUMERIC(6,2)  NOT NULL,
-    QuantitaProdotto              NUMERIC(4)    NOT NULL,
+    NumCarico                     CHAR(5),
+    CodiceABarre                  CHAR(13),
+    CostoProdotto                 NUMBER(6,2)  NOT NULL,
+    QuantitaProdotto              NUMBER(4)    NOT NULL,
     CONSTRAINT FK1_carprod        FOREIGN KEY (NumCarico) REFERENCES CaricoMerce (NumCarico) ON DELETE CASCADE,
     CONSTRAINT FK2_carprod        FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE CASCADE,
     CONSTRAINT PK_carprod         PRIMARY KEY (NumCarico, CodiceABarre)
