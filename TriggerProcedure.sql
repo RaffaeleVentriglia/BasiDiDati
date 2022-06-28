@@ -24,3 +24,17 @@ EXCEPTION
         RAISE_APPLICATION_ERROR(-20001, 'Dipendente minorenne');
 END;
 
+/*
+    Procedura che controlla se, dopo l'inserimento della tupla di una tessera,
+    siano presenti almeno 50 punti, e nel caso in cui ci fossero allora il cliente
+    riceve uno sconto sullo scontrino di Euro 20
+*/
+
+CREATE OR REPLACE PROCEDURE PuntiTessera (SogliaPunti NUMBER) IS
+CURSOR PROVA IS
+SELECT Punti
+    FROM Tessera
+    WHERE Punti >= 50;
+BEGIN
+    
+END;
