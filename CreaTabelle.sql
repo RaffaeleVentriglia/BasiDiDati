@@ -25,7 +25,7 @@ CREATE TABLE Presenza (
 );
 
 CREATE TABLE Stipendio (
-    ImportoStipendio              NUMBER(6,2)   NOT NULL CHECK (ImportoStipendio >= 1000),
+    ImportoStipendio              NUMBER(6,2)   NOT NULL CHECK (ImportoStipendio >= 1400),
     TrattenuteStipendio           NUMBER(5,2)   NOT NULL,
     DataStipendio                 DATE,
     CFdipendente                  CHAR(16),
