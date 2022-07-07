@@ -42,8 +42,7 @@ CREATE TABLE Cassa (
 CREATE TABLE Tessera (
     CodiceTessera                 CHAR(5)        PRIMARY KEY,
     ScadenzaTessera               DATE           NOT NULL,
-    EmailCliente                  VARCHAR(255)   UNIQUE NOT NULL,
-    PuntiTessera                  NUMBER(5)
+    EmailCliente                  VARCHAR(255)   UNIQUE NOT NULL
 );
 
 CREATE TABLE Scontrino (
