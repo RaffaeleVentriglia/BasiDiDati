@@ -33,9 +33,7 @@ DECLARE
     Check_Turno EXCEPTION;
 BEGIN
     SELECT MAX(UltimaOra) INTO Turno FROM presenza where CFDipendente = :new.CFDipendente;
-    IF :new.UltimaOra < :new.PrimaOra
-    THEN raise Check_Turno;
-    ELSIF Turno > :new.PrimaOra
+    IF Turno > :new.PrimaOra
     THEN raise Check_Turno;
     END IF;
 EXCEPTION
@@ -107,9 +105,57 @@ END;
     trigger 6: non è possibile vendere prodotti in eccesso alla disponibilità
 
     trigger 7: controllare se lo stipendio è sufficiente in base al ruolo del dipendente
-
-    trigger 8: 
 */
+
+/*
+    trigger 8: controllo del massimo numero di dipendenti
+*/
+CREATE OR REPLACE TRIGGER MaxDipendenti
+BEFORE INSERT ON Dipendente
+FOR EACH ROW
+DECLARE
+    num_dipendenti NUMBER;
+    Check_Max_Dipendenti EXCEPTION;
+BEGIN
+    SELECT COUNT(*) INTO num_dipendenti FROM DIPENDENTE;
+    IF cont = 25
+    THEN RAISE Check_Max_Dipendenti;
+    END IF;
+EXCEPTION
+    WHEN Check_Max_Dipendenti
+    THEN RAISE_APPLICATION_ERROR(-20001, 'Numero massimo di dipendenti raggiunto.');
+END;
+
+/*
+    trigger 9: impedisce alla promozione di fare uno sconto eccessivo (NON HO CONTROLLATO SE FUNZIONA)
+*/
+
+CREATE OR REPLACE Max_Offerta
+BEFORE INSERT OR UPDATE ON Offerta
+FOR EACH ROW
+
+DECLARE 
+    Check_Sconto EXCEPTION;
+    Costo_Acquisto_Prodotto CaricoMerce_Prodotto.CostoProdotto%TYPE;
+    Prezzo_Prodotto Prodotto.PrezzoProdotto%TYPE;
+
+BEGIN 
+    SELECT CostoProdotto INTO Costo_Acquisto_Prodotto
+    FROM CaricoMerce_Prodotto 
+    WHERE CodiceABarre = :new.CodiceABarre
+
+    SELECT PrezzoProdotto INTO Prezzo_Prodotto
+    FROM Prodotto 
+    WHERE CodiceABarre = :new.CodiceABarre
+
+    IF (Prezzo_Prodotto * :new.ScontoApplicato) < (Costo_Acquisto_Prodotto * 0.3)
+    THEN RAISE Check_Sconto;
+    END IF;    
+
+EXCEPTION
+  WHEN Check_Sconto 
+  THEN RAISE_APPLICATION_ERROR (-20001, 'Lo sconto effettuato non permette un margine di profitto del 30%'); -- è l'output di Danisi, da cambiare
+END;
 
 
 

@@ -1,5 +1,4 @@
 -- fare il check per la lunghezza minima della password
-
 INSERT INTO Credenziali VALUES ('umberto.testa', '&Ts5Y*VJmL2o');
 INSERT INTO Credenziali VALUES ('doriana.bianchi', '3TVnpjQ&BGlo');
 INSERT INTO Credenziali VALUES ('marina.ferrara', 'mBn#s6X%RSiq');
@@ -248,64 +247,64 @@ INSERT INTO Brand VALUES ('Turtle Beach', '+322040121459', 'turtle.beach@yahoo.c
 
 
 
--- videogiochi
-INSERT INTO Prodotto VALUES ('3161144353361', 60, 'Leggende Pokémon: Arceus', 'Nintendo');
-INSERT INTO Prodotto VALUES ('7421596293422', 80, 'Fifa 22', 'Electronic Arts');
-INSERT INTO Prodotto VALUES ('7421596293423', 80, 'Fifa 22', 'Electronic Arts');
-INSERT INTO Prodotto VALUES ('7421596293424', 70, 'Fifa 22', 'Electronic Arts');
-INSERT INTO Prodotto VALUES ('7421596293425', 70, 'Fifa 22', 'Electronic Arts');
-INSERT INTO Prodotto VALUES ('1261524815982', 9.90, 'Gunjack', 'CCP Games');
-INSERT INTO Prodotto VALUES ('7389735471827', 59.90, 'The Legend of Zelda: Breath of the Wild', 'Nintendo');
-INSERT INTO Prodotto VALUES ('2117985678598', 85.90, 'Assassin Creed: Valhalla', 'Ubisoft');
-INSERT INTO Prodotto VALUES ('2958458523424', 59.90, 'LEGO Star Wars: La Saga degli Skywalker', 'Warner Bros.');
-INSERT INTO Prodotto VALUES ('2516872378394', 35.50, 'Fortnite', 'Epic Games');
-INSERT INTO Prodotto VALUES ('3236799153441', 10.00, 'Fall Guys', 'Epic Games');
-INSERT INTO Prodotto VALUES ('5735695496534', 49.90, 'Dragon Ball FighterZ', 'Bandai Namco');
-INSERT INTO Prodotto VALUES ('7696551478743', 15.90, 'Royal Revolt 2', 'Flaregames');
-INSERT INTO Prodotto VALUES ('5444637321494', 40, 'Sonic Origins', 'SEGA');
-INSERT INTO Prodotto VALUES ('5444637321495', 40, 'Sonic Origins', 'SEGA');
-INSERT INTO Prodotto VALUES ('9252654442576', 59.90, 'Spider-Man: Miles Morales', 'Sony');
-INSERT INTO Prodotto VALUES ('3522923974493', 15.45, 'Uncharted 3', 'Sony');
-INSERT INTO Prodotto VALUES ('6726585883313', 50.80, 'Halo Infinite', 'Microsoft');
-INSERT INTO Prodotto VALUES ('6726585883312', 14.90, 'PES 2020', 'Konami');
-INSERT INTO Prodotto VALUES ('8282521878755', 60.70, 'Forza Horizon 4', 'Microsoft');
-INSERT INTO Prodotto VALUES ('9112521878752', 59.90, 'Kingdom Hearts III', 'Square Enix');
-INSERT INTO Prodotto VALUES ('9411876517421', 69.90, 'Red Dead Redemption II', 'Rockstar Games');
--- console
-INSERT INTO Prodotto VALUES ('2159952449449', 499.99, 'PlayStation 5', 'Sony');
-INSERT INTO Prodotto VALUES ('8575794632918', 399.99, 'PlayStation 5 Digital Edition', 'Sony');
-INSERT INTO Prodotto VALUES ('8239872659154', 299.99, 'Nintendo Switch', 'Nintendo');
-INSERT INTO Prodotto VALUES ('8322765493758', 369.99, 'Nintendo Switch OLED', 'Nintendo');
-INSERT INTO Prodotto VALUES ('4158659266579', 499.99, 'XBox Series X', 'Microsoft');
-INSERT INTO Prodotto VALUES ('3226874567689', 299.99, 'XBox Series S', 'Microsoft');
-INSERT INTO Prodotto VALUES ('8972798252271', 249.99, 'PlayStation 4 Pro', 'Sony');
-INSERT INTO Prodotto VALUES ('5534913359943', 199.99, 'PlayStation 4', 'Sony'); --500GB
-INSERT INTO Prodotto VALUES ('5534913359944', 249.99, 'PlayStation 4', 'Sony'); --1TB
-INSERT INTO Prodotto VALUES ('2728622851118', 149.99, 'New Nintendo 3DS XL', 'Nintendo');
-INSERT INTO Prodotto VALUES ('5635676774424', 109.99, 'New Nintendo 2DS XL', 'Nintendo');
-INSERT INTO Prodotto VALUES ('7373432787644', 99.99, 'XBox One', 'Microsoft'); --500GB
-INSERT INTO Prodotto VALUES ('8282521878756', 99.99, 'XBox One', 'Microsoft'); --1TB
-INSERT INTO Prodotto VALUES ('4481662758784', 199.99, 'XBox One X', 'Microsoft');
-INSERT INTO Prodotto VALUES ('3241649593949', 99.99, 'Wii U', 'Nintendo');
--- accessori
-INSERT INTO Prodotto VALUES ('5625001717375', 59.99, 'DualSense', 'Sony');
-INSERT INTO Prodotto VALUES ('3234015733361', 39.99, 'Base di ricarica per PS5', 'Sony');
-INSERT INTO Prodotto VALUES ('5199409220511', 69.99, 'Pulse 3D', 'Sony');
-INSERT INTO Prodotto VALUES ('3229944607184', 45.80, 'Set da due Joycon', 'Nintendo');
-INSERT INTO Prodotto VALUES ('6344955242208', 25, 'Joycon sinistro', 'Nintendo');
-INSERT INTO Prodotto VALUES ('4672059822867', 25, 'Joycon destro', 'Nintendo');
-INSERT INTO Prodotto VALUES ('9488214796576', 137.99, 'Turtle Beach Stealth 700 Gen 2', 'Turtle Beach');
-INSERT INTO Prodotto VALUES ('9439153323878', 159.99, 'Turtle Beach Stealth 700 Gen 2 MAX', 'Turtle Beach');
-INSERT INTO Prodotto VALUES ('5388065781485', 159.99, 'XBox Wireless Controller Elite Series 2', 'Microsoft');
-INSERT INTO Prodotto VALUES ('2701636146252', 69.99, 'XBox Wireless Controller', 'Microsoft');
-INSERT INTO Prodotto VALUES ('2294542494557', 89.99, 'XBox Adaptive Controller', 'Microsoft');
-INSERT INTO Prodotto VALUES ('2852787497765', 19.99, 'Batteria ricaricabile per XBox', 'Microsoft');
-INSERT INTO Prodotto VALUES ('9475756268876', 99.99, 'Cuffie Wireless per Xbox', 'Microsoft');
-INSERT INTO Prodotto VALUES ('9268754174422', 59.99, 'Nintendo Switch Pro Controller', 'Nintendo');
-INSERT INTO Prodotto VALUES ('6235044612233', 9.99, 'Laccetto per Joy-Con', 'Nintendo');
+-- VIDEOGIOCHI
+INSERT INTO Prodotto VALUES ('3877265963667', 60, 'Leggende Pokémon: Arceus', 'Nintendo');
+INSERT INTO Prodotto VALUES ('5261672851322', 80, 'Fifa 22', 'Electronic Arts');
+INSERT INTO Prodotto VALUES ('8689163198377', 80, 'Fifa 22', 'Electronic Arts');
+INSERT INTO Prodotto VALUES ('7569965644637', 70, 'Fifa 22', 'Electronic Arts');
+INSERT INTO Prodotto VALUES ('6636925343633', 70, 'Fifa 22', 'Electronic Arts');
+INSERT INTO Prodotto VALUES ('8893282530072', 9.90, 'Gunjack', 'CCP Games');
+INSERT INTO Prodotto VALUES ('6331848499061', 59.90, 'The Legend of Zelda: Breath of the Wild', 'Nintendo');
+INSERT INTO Prodotto VALUES ('4279661395593', 85.90, 'Assassin Creed: Valhalla', 'Ubisoft');
+INSERT INTO Prodotto VALUES ('7759311300786', 59.90, 'LEGO Star Wars: La Saga degli Skywalker', 'Warner Bros.');
+INSERT INTO Prodotto VALUES ('3845831951579', 45.50, 'PES 2022', 'Konami');
+INSERT INTO Prodotto VALUES ('1763091652981', 25, 'PES 2021', 'Konami');
+INSERT INTO Prodotto VALUES ('5849904171315', 49.90, 'Dragon Ball FighterZ', 'Bandai Namco');
+INSERT INTO Prodotto VALUES ('1802326769756', 15.90, 'Royal Revolt 2', 'Flaregames');
+INSERT INTO Prodotto VALUES ('2227993193892', 40, 'Sonic Origins', 'SEGA');
+INSERT INTO Prodotto VALUES ('7656086480717', 40, 'Sonic Origins', 'SEGA');
+INSERT INTO Prodotto VALUES ('8959744137355', 59.90, 'Spider-Man: Miles Morales', 'Sony');
+INSERT INTO Prodotto VALUES ('3905983422992', 15.45, 'Uncharted 3', 'Sony');
+INSERT INTO Prodotto VALUES ('4005752908654', 50.80, 'Halo Infinite', 'Microsoft');
+INSERT INTO Prodotto VALUES ('2574368316778', 14.90, 'PES 2020', 'Konami');
+INSERT INTO Prodotto VALUES ('5874215310098', 60.70, 'Forza Horizon 4', 'Microsoft');
+INSERT INTO Prodotto VALUES ('8442548626056', 59.90, 'Kingdom Hearts III', 'Square Enix');
+INSERT INTO Prodotto VALUES ('7246393676323', 69.90, 'Red Dead Redemption II', 'Rockstar Games');
+-- CONSOLE
+INSERT INTO Prodotto VALUES ('7551569504789', 499.70, 'PlayStation 5', 'Sony');
+INSERT INTO Prodotto VALUES ('8328677709326', 399.50, 'PlayStation 5 Digital Edition', 'Sony');
+INSERT INTO Prodotto VALUES ('8020873584468', 299.80, 'Nintendo Switch', 'Nintendo');
+INSERT INTO Prodotto VALUES ('5902515361535', 369.30, 'Nintendo Switch OLED', 'Nintendo');
+INSERT INTO Prodotto VALUES ('3383053992374', 499.50, 'XBox Series X', 'Microsoft');
+INSERT INTO Prodotto VALUES ('2745997206278', 299.90, 'XBox Series S', 'Microsoft');
+INSERT INTO Prodotto VALUES ('4967864464771', 249.50, 'PlayStation 4 Pro', 'Sony');
+INSERT INTO Prodotto VALUES ('5546466222023', 199.50, 'PlayStation 4', 'Sony'); --500GB
+INSERT INTO Prodotto VALUES ('4695129417494', 249.90, 'PlayStation 4', 'Sony'); --1TB
+INSERT INTO Prodotto VALUES ('3963478393918', 149.60, 'New Nintendo 3DS XL', 'Nintendo');
+INSERT INTO Prodotto VALUES ('1919615523081', 109.70, 'New Nintendo 2DS XL', 'Nintendo');
+INSERT INTO Prodotto VALUES ('5117654552206', 89.90, 'XBox One', 'Microsoft'); --500GB    C'È UN ERRORE
+INSERT INTO Prodotto VALUES ('5946997088647', 99.90, 'XBox One', 'Microsoft'); --1TB
+INSERT INTO Prodotto VALUES ('7572733277975', 190.90, 'XBox One X', 'Microsoft');  -- C'È UN ERRORE
+INSERT INTO Prodotto VALUES ('4181906887663', 99.90, 'Wii U', 'Nintendo');
+-- ACCESSORI
+INSERT INTO Prodotto VALUES ('3286046443005', 59.90, 'DualSense', 'Sony');
+INSERT INTO Prodotto VALUES ('2436541758173', 39.90, 'Base di ricarica per PS5', 'Sony');
+INSERT INTO Prodotto VALUES ('4697876716421', 69.90, 'Pulse 3D', 'Sony');
+INSERT INTO Prodotto VALUES ('7998211279748', 45.80, 'Set da due Joycon', 'Nintendo');
+INSERT INTO Prodotto VALUES ('4818043864696', 25, 'Joycon sinistro', 'Nintendo');
+INSERT INTO Prodotto VALUES ('5946084403818', 25, 'Joycon destro', 'Nintendo');
+INSERT INTO Prodotto VALUES ('8433307812551', 137.90, 'Turtle Beach Stealth 700 Gen 2', 'Turtle Beach');
+INSERT INTO Prodotto VALUES ('3931877761221', 159.90, 'Turtle Beach Stealth 700 Gen 2 MAX', 'Turtle Beach');
+INSERT INTO Prodotto VALUES ('3726977003226', 159.90, 'XBox Wireless Controller Elite Series 2', 'Microsoft');
+INSERT INTO Prodotto VALUES ('7665257537924', 69.90, 'XBox Wireless Controller', 'Microsoft');
+INSERT INTO Prodotto VALUES ('4914406507066', 89.90, 'XBox Adaptive Controller', 'Microsoft');
+INSERT INTO Prodotto VALUES ('7653894118883', 19.90, 'Batteria ricaricabile per XBox', 'Microsoft');
+INSERT INTO Prodotto VALUES ('7920684151328', 99.90, 'Cuffie Wireless per Xbox', 'Microsoft');
+INSERT INTO Prodotto VALUES ('9527052293741', 59.90, 'Nintendo Switch Pro Controller', 'Nintendo');
+INSERT INTO Prodotto VALUES ('8277809882409', 9.90, 'Laccetto per Joy-Con', 'Nintendo');
 
 
-
+-- ANCORA DA MODIFICARE
 INSERT INTO Offerta VALUES ('731', '20g', 'Sconto 20%');
 INSERT INTO Offerta VALUES ('410', '10g', 'Sconto 10%');
 INSERT INTO Offerta VALUES ('368', '01s', 'Sconto 15%');
@@ -323,103 +322,139 @@ INSERT INTO Offerta VALUES ('539', '03g', 'Sconto 50€');
 INSERT INTO Offerta VALUES ('866', '29g', 'Sconto 10€');
 
 
+-- OFFERTE PER VIDEOGIOCHI
+INSERT INTO Offerta_Prodotto VALUES ('3877265963667', '731');
+INSERT INTO Offerta_Prodotto VALUES ('5261672851322', '410');
+INSERT INTO Offerta_Prodotto VALUES ('8689163198377', '368');
+INSERT INTO Offerta_Prodotto VALUES ('7569965644637', '316');
+INSERT INTO Offerta_Prodotto VALUES ('6636925343633', '641');
+INSERT INTO Offerta_Prodotto VALUES ('8893282530072', '463');
+INSERT INTO Offerta_Prodotto VALUES ('6331848499061', '907');
+INSERT INTO Offerta_Prodotto VALUES ('4279661395593', '181');
+INSERT INTO Offerta_Prodotto VALUES ('7759311300786', '174');
+INSERT INTO Offerta_Prodotto VALUES ('3845831951579', '399');
+INSERT INTO Offerta_Prodotto VALUES ('1763091652981', '737');
+INSERT INTO Offerta_Prodotto VALUES ('5849904171315', '400');
+INSERT INTO Offerta_Prodotto VALUES ('1802326769756', '844');
+INSERT INTO Offerta_Prodotto VALUES ('2227993193892', '539');
+INSERT INTO Offerta_Prodotto VALUES ('7656086480717', '866');
+INSERT INTO Offerta_Prodotto VALUES ('8959744137355', '174');
+INSERT INTO Offerta_Prodotto VALUES ('3905983422992', '399');
+INSERT INTO Offerta_Prodotto VALUES ('4005752908654', '737');
+INSERT INTO Offerta_Prodotto VALUES ('2574368316778', '400');
+INSERT INTO Offerta_Prodotto VALUES ('5874215310098', '844');
+INSERT INTO Offerta_Prodotto VALUES ('8442548626056', '539');
+INSERT INTO Offerta_Prodotto VALUES ('7246393676323', '866');
+-- OFFERTE PER CONSOLE
+INSERT INTO Offerta_Prodotto VALUES ('7551569504789', '181');
+INSERT INTO Offerta_Prodotto VALUES ('8328677709326', '174');
+INSERT INTO Offerta_Prodotto VALUES ('8020873584468', '399');
+INSERT INTO Offerta_Prodotto VALUES ('5902515361535', '737');
+INSERT INTO Offerta_Prodotto VALUES ('3383053992374', '400');
+INSERT INTO Offerta_Prodotto VALUES ('2745997206278', '844');
+INSERT INTO Offerta_Prodotto VALUES ('4967864464771', '539');
+INSERT INTO Offerta_Prodotto VALUES ('5546466222023', '866');
+INSERT INTO Offerta_Prodotto VALUES ('4695129417494', '174');
+INSERT INTO Offerta_Prodotto VALUES ('3963478393918', '399');
+INSERT INTO Offerta_Prodotto VALUES ('1919615523081', '737');
+INSERT INTO Offerta_Prodotto VALUES ('5117654552206', '400');
+INSERT INTO Offerta_Prodotto VALUES ('5946997088647', '844');
+INSERT INTO Offerta_Prodotto VALUES ('7572733277975', '539');
+INSERT INTO Offerta_Prodotto VALUES ('4181906887663', '866');
+-- OFFERTE PER ACCESSORI
+INSERT INTO Offerta_Prodotto VALUES ('3286046443005', '181');
+INSERT INTO Offerta_Prodotto VALUES ('2436541758173', '174');
+INSERT INTO Offerta_Prodotto VALUES ('4697876716421', '399');
+INSERT INTO Offerta_Prodotto VALUES ('7998211279748', '737');
+INSERT INTO Offerta_Prodotto VALUES ('4818043864696', '400');
+INSERT INTO Offerta_Prodotto VALUES ('5946084403818', '844');
+INSERT INTO Offerta_Prodotto VALUES ('8433307812551', '539');
+INSERT INTO Offerta_Prodotto VALUES ('3931877761221', '866');
+INSERT INTO Offerta_Prodotto VALUES ('3726977003226', '174');
+INSERT INTO Offerta_Prodotto VALUES ('7665257537924', '399');
+INSERT INTO Offerta_Prodotto VALUES ('4914406507066', '737');
+INSERT INTO Offerta_Prodotto VALUES ('7653894118883', '400');
+INSERT INTO Offerta_Prodotto VALUES ('7920684151328', '844');
+INSERT INTO Offerta_Prodotto VALUES ('9527052293741', '539');
+INSERT INTO Offerta_Prodotto VALUES ('8277809882409', '866');
 
-INSERT INTO Offerta_Prodotto VALUES ('3161144353361', '731');
-INSERT INTO Offerta_Prodotto VALUES ('7421596293422', '410');
-INSERT INTO Offerta_Prodotto VALUES ('7421596293423', '368');
-INSERT INTO Offerta_Prodotto VALUES ('7421596293424', '316');
-INSERT INTO Offerta_Prodotto VALUES ('2159952449449', '641');
-INSERT INTO Offerta_Prodotto VALUES ('8575794632918', '463');
-INSERT INTO Offerta_Prodotto VALUES ('8239872659154', '907');
-INSERT INTO Offerta_Prodotto VALUES ('8322765493758', '181');
-INSERT INTO Offerta_Prodotto VALUES ('5625001717375', '174');
-INSERT INTO Offerta_Prodotto VALUES ('3234015733361', '399');
-INSERT INTO Offerta_Prodotto VALUES ('5199409220511', '737');
-INSERT INTO Offerta_Prodotto VALUES ('3229944607184', '400');
-INSERT INTO Offerta_Prodotto VALUES ('9411876517421', '844');
-INSERT INTO Offerta_Prodotto VALUES ('3241649593949', '539');
-INSERT INTO Offerta_Prodotto VALUES ('6235044612233', '866');
 
 
-
-INSERT INTO Scontrino_Prodotto VALUES ('015', DATE '2020-04-17', '3161144353361', 15);
-INSERT INTO Scontrino_Prodotto VALUES ('145', DATE '2020-06-02', '7421596293422', 19);
-INSERT INTO Scontrino_Prodotto VALUES ('425', DATE '2020-06-24', '7421596293423', 25);
-INSERT INTO Scontrino_Prodotto VALUES ('100', DATE '2021-02-17', '7421596293424', 5);
-INSERT INTO Scontrino_Prodotto VALUES ('001', DATE '2021-04-12', '2159952449449', 45);
-INSERT INTO Scontrino_Prodotto VALUES ('102', DATE '2021-10-04', '8575794632918', 50);
-INSERT INTO Scontrino_Prodotto VALUES ('253', DATE '2021-12-24', '8239872659154', 37);
-INSERT INTO Scontrino_Prodotto VALUES ('197', DATE '2022-02-09', '8322765493758', 23);
-INSERT INTO Scontrino_Prodotto VALUES ('173', DATE '2022-04-08', '5625001717375', 19);
-INSERT INTO Scontrino_Prodotto VALUES ('142', DATE '2022-05-12', '3234015733361', 96);
-INSERT INTO Scontrino_Prodotto VALUES ('075', DATE '2022-06-03', '5199409220511', 10);
-INSERT INTO Scontrino_Prodotto VALUES ('275', DATE '2022-07-06', '3229944607184', 22);
-INSERT INTO Scontrino_Prodotto VALUES ('175', DATE '2022-08-17', '9411876517421', 63);
-INSERT INTO Scontrino_Prodotto VALUES ('045', DATE '2022-09-14', '3241649593949', 12);
-INSERT INTO Scontrino_Prodotto VALUES ('111', DATE '2022-10-10', '6235044612233', 84);
--- da aggiungere altri scontrini e collegarli ai prodotti
+INSERT INTO Scontrino_Prodotto VALUES ('015', DATE '2020-04-17', '3286046443005', 15);
+INSERT INTO Scontrino_Prodotto VALUES ('145', DATE '2020-06-02', '2436541758173', 19);
+INSERT INTO Scontrino_Prodotto VALUES ('425', DATE '2020-06-24', '4697876716421', 25);
+INSERT INTO Scontrino_Prodotto VALUES ('100', DATE '2021-02-17', '7998211279748', 5);
+INSERT INTO Scontrino_Prodotto VALUES ('001', DATE '2021-04-12', '4818043864696', 45);
+INSERT INTO Scontrino_Prodotto VALUES ('102', DATE '2021-10-04', '5946084403818', 50);
+INSERT INTO Scontrino_Prodotto VALUES ('253', DATE '2021-12-24', '8433307812551', 37);
+INSERT INTO Scontrino_Prodotto VALUES ('197', DATE '2022-02-09', '3931877761221', 23);
+INSERT INTO Scontrino_Prodotto VALUES ('173', DATE '2022-04-08', '3726977003226', 19);
+INSERT INTO Scontrino_Prodotto VALUES ('142', DATE '2022-05-12', '7665257537924', 96);
+INSERT INTO Scontrino_Prodotto VALUES ('075', DATE '2022-06-03', '4914406507066', 10);
+INSERT INTO Scontrino_Prodotto VALUES ('275', DATE '2022-07-06', '7653894118883', 22);
+INSERT INTO Scontrino_Prodotto VALUES ('175', DATE '2022-08-17', '7920684151328', 63);
+INSERT INTO Scontrino_Prodotto VALUES ('045', DATE '2022-09-14', '9527052293741', 12);
+INSERT INTO Scontrino_Prodotto VALUES ('111', DATE '2022-10-10', '8277809882409', 84);
+-- da aggiungere altri scontrini e collegarli ai prodotti, per il momento ci sono
+-- soltanto i codici degli accessori
 
 
 /*
 
-INSERT INTO Videogioco VALUES ('', '3161144353361');
-INSERT INTO Videogioco VALUES ('', '7421596293422');
-INSERT INTO Videogioco VALUES ('', '7421596293423');
-INSERT INTO Videogioco VALUES ('', '7421596293424');
-INSERT INTO Videogioco VALUES ('', '7421596293425');
-INSERT INTO Videogioco VALUES ('', '1261524815982');
-INSERT INTO Videogioco VALUES ('', '7389735471827');
-INSERT INTO Videogioco VALUES ('', '2117985678598');
-INSERT INTO Videogioco VALUES ('', '2958458523424');
-INSERT INTO Videogioco VALUES ('', '2516872378394');
-INSERT INTO Videogioco VALUES ('', '3236799153441');
-INSERT INTO Videogioco VALUES ('', '5735695496534');
-INSERT INTO Videogioco VALUES ('', '7696551478743');
-INSERT INTO Videogioco VALUES ('', '5444637321494');
-INSERT INTO Videogioco VALUES ('', '5444637321495');
-INSERT INTO Videogioco VALUES ('', '9252654442576');
-INSERT INTO Videogioco VALUES ('', '3522923974493');
-INSERT INTO Videogioco VALUES ('', '6726585883313');
-INSERT INTO Videogioco VALUES ('', '6726585883312');
-INSERT INTO Videogioco VALUES ('', '8282521878755');
-INSERT INTO Videogioco VALUES ('', '9112521878752');
-INSERT INTO Videogioco VALUES ('', '9411876517421');
+INSERT INTO Videogioco VALUES ('', '3877265963667');
+INSERT INTO Videogioco VALUES ('', '5261672851322');
+INSERT INTO Videogioco VALUES ('', '8689163198377');
+INSERT INTO Videogioco VALUES ('', '7569965644637');
+INSERT INTO Videogioco VALUES ('', '6636925343633');
+INSERT INTO Videogioco VALUES ('', '8893282530072');
+INSERT INTO Videogioco VALUES ('', '6331848499061');
+INSERT INTO Videogioco VALUES ('', '4279661395593');
+INSERT INTO Videogioco VALUES ('', '7759311300786');
+INSERT INTO Videogioco VALUES ('', '3845831951579');
+INSERT INTO Videogioco VALUES ('', '1763091652981');
+INSERT INTO Videogioco VALUES ('', '5849904171315');
+INSERT INTO Videogioco VALUES ('', '1802326769756');
+INSERT INTO Videogioco VALUES ('', '2227993193892');
+INSERT INTO Videogioco VALUES ('', '7656086480717');
+INSERT INTO Videogioco VALUES ('', '8959744137355');
+INSERT INTO Videogioco VALUES ('', '3905983422992');
+INSERT INTO Videogioco VALUES ('', '4005752908654');
+INSERT INTO Videogioco VALUES ('', '2574368316778');
+INSERT INTO Videogioco VALUES ('', '5874215310098');
+INSERT INTO Videogioco VALUES ('', '8442548626056');
+INSERT INTO Videogioco VALUES ('', '7246393676323');
 
+INSERT INTO Console VALUES ('', '7551569504789');
+INSERT INTO Console VALUES ('', '8328677709326');
+INSERT INTO Console VALUES ('', '8020873584468');
+INSERT INTO Console VALUES ('', '5902515361535');
+INSERT INTO Console VALUES ('', '3383053992374');
+INSERT INTO Console VALUES ('', '2745997206278');
+INSERT INTO Console VALUES ('', '4967864464771');
+INSERT INTO Console VALUES ('', '5546466222023');
+INSERT INTO Console VALUES ('', '4695129417494');
+INSERT INTO Console VALUES ('', '3963478393918');
+INSERT INTO Console VALUES ('', '1919615523081');
+INSERT INTO Console VALUES ('', '5117654552206');
+INSERT INTO Console VALUES ('', '5946997088647');
+INSERT INTO Console VALUES ('', '7572733277975');
+INSERT INTO Console VALUES ('', '4181906887663');
 
-
-INSERT INTO Console VALUES ('', '2159952449449');
-INSERT INTO Console VALUES ('', '8575794632918');
-INSERT INTO Console VALUES ('', '8239872659154');
-INSERT INTO Console VALUES ('', '8322765493758');
-INSERT INTO Console VALUES ('', '4158659266579');
-INSERT INTO Console VALUES ('', '3226874567689');
-INSERT INTO Console VALUES ('', '8972798252271');
-INSERT INTO Console VALUES ('', '5534913359943');
-INSERT INTO Console VALUES ('', '5534913359944');
-INSERT INTO Console VALUES ('', '2728622851118');
-INSERT INTO Console VALUES ('', '5635676774424');
-INSERT INTO Console VALUES ('', '7373432787644');
-INSERT INTO Console VALUES ('', '8282521878756');
-INSERT INTO Console VALUES ('', '4481662758784');
-INSERT INTO Console VALUES ('', '3241649593949');
-
-
-
-INSERT INTO Accessorio VALUES ('', '5625001717375');
-INSERT INTO Accessorio VALUES ('', '3234015733361');
-INSERT INTO Accessorio VALUES ('', '5199409220511');
-INSERT INTO Accessorio VALUES ('', '3229944607184');
-INSERT INTO Accessorio VALUES ('', '6344955242208');
-INSERT INTO Accessorio VALUES ('', '4672059822867');
-INSERT INTO Accessorio VALUES ('', '9488214796576');
-INSERT INTO Accessorio VALUES ('', '9439153323878');
-INSERT INTO Accessorio VALUES ('', '5388065781485');
-INSERT INTO Accessorio VALUES ('', '2701636146252');
-INSERT INTO Accessorio VALUES ('', '2294542494557');
-INSERT INTO Accessorio VALUES ('', '2852787497765');
-INSERT INTO Accessorio VALUES ('', '9475756268876');
-INSERT INTO Accessorio VALUES ('', '9268754174422');
-INSERT INTO Accessorio VALUES ('', '6235044612233');
+INSERT INTO Accessorio VALUES ('', '3286046443005');
+INSERT INTO Accessorio VALUES ('', '2436541758173');
+INSERT INTO Accessorio VALUES ('', '4697876716421');
+INSERT INTO Accessorio VALUES ('', '7998211279748');
+INSERT INTO Accessorio VALUES ('', '4818043864696');
+INSERT INTO Accessorio VALUES ('', '5946084403818');
+INSERT INTO Accessorio VALUES ('', '8433307812551');
+INSERT INTO Accessorio VALUES ('', '3931877761221');
+INSERT INTO Accessorio VALUES ('', '3726977003226');
+INSERT INTO Accessorio VALUES ('', '7665257537924');
+INSERT INTO Accessorio VALUES ('', '4914406507066');
+INSERT INTO Accessorio VALUES ('', '7653894118883');
+INSERT INTO Accessorio VALUES ('', '7920684151328');
+INSERT INTO Accessorio VALUES ('', '9527052293741');
+INSERT INTO Accessorio VALUES ('', '8277809882409');
 
 */
 
@@ -478,18 +513,20 @@ INSERT INTO CaricoMerce VALUES ('X9YrY', 'meQ8eak059sCsEub1M', DATE '2022-07-25'
 
 
 
-INSERT INTO CaricoMerce_Prodotto VALUES ('VuahC', '3161144353361', 50, 83);
-INSERT INTO CaricoMerce_Prodotto VALUES ('q9lnB', '7421596293422', 65, 51);
-INSERT INTO CaricoMerce_Prodotto VALUES ('ChV2W', '7421596293423', 63, 46);
-INSERT INTO CaricoMerce_Prodotto VALUES ('ps3bv', '7421596293424', 60, 90);
-INSERT INTO CaricoMerce_Prodotto VALUES ('wRoB5', '2159952449449', 449.50, 20);
-INSERT INTO CaricoMerce_Prodotto VALUES ('SvBhL', '8575794632918', 330.45, 91);
-INSERT INTO CaricoMerce_Prodotto VALUES ('EAsYE', '8239872659154', 245.90, 46);
-INSERT INTO CaricoMerce_Prodotto VALUES ('GrQjf', '8322765493758', 300, 73);
-INSERT INTO CaricoMerce_Prodotto VALUES ('edy2i', '5625001717375', 49.90, 98);
-INSERT INTO CaricoMerce_Prodotto VALUES ('TFA5G', '3234015733361', 29.90, 76);
-INSERT INTO CaricoMerce_Prodotto VALUES ('Fbsck', '5199409220511', 57.90, 91);
-INSERT INTO CaricoMerce_Prodotto VALUES ('Ef218', '3229944607184', 30.90, 51);
-INSERT INTO CaricoMerce_Prodotto VALUES ('0v45N', '9411876517421', 59.90, 43);
-INSERT INTO CaricoMerce_Prodotto VALUES ('LdcL4', '3241649593949', 70, 54);
-INSERT INTO CaricoMerce_Prodotto VALUES ('X9YrY', '6235044612233', 6.90, 65);
+INSERT INTO CaricoMerce_Prodotto VALUES ('VuahC', '3286046443005', , 83);
+INSERT INTO CaricoMerce_Prodotto VALUES ('q9lnB', '2436541758173', , 51);
+INSERT INTO CaricoMerce_Prodotto VALUES ('ChV2W', '4697876716421', , 46);
+INSERT INTO CaricoMerce_Prodotto VALUES ('ps3bv', '7998211279748', , 90);
+INSERT INTO CaricoMerce_Prodotto VALUES ('wRoB5', '4818043864696', , 20);
+INSERT INTO CaricoMerce_Prodotto VALUES ('SvBhL', '5946084403818', , 91);
+INSERT INTO CaricoMerce_Prodotto VALUES ('EAsYE', '8433307812551', , 46);
+INSERT INTO CaricoMerce_Prodotto VALUES ('GrQjf', '3931877761221', , 73);
+INSERT INTO CaricoMerce_Prodotto VALUES ('edy2i', '3726977003226', , 98);
+INSERT INTO CaricoMerce_Prodotto VALUES ('TFA5G', '7665257537924', , 76);
+INSERT INTO CaricoMerce_Prodotto VALUES ('Fbsck', '4914406507066', , 91);
+INSERT INTO CaricoMerce_Prodotto VALUES ('Ef218', '7653894118883', , 51);
+INSERT INTO CaricoMerce_Prodotto VALUES ('0v45N', '7920684151328', , 43);
+INSERT INTO CaricoMerce_Prodotto VALUES ('LdcL4', '9527052293741', , 54);
+INSERT INTO CaricoMerce_Prodotto VALUES ('X9YrY', '8277809882409', , 65);
+-- per il momento ci sono i codici a barre solo degli accessori,
+-- si devono aggiungere tutti gli altri prodotti

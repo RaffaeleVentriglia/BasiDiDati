@@ -21,7 +21,8 @@ CREATE TABLE Presenza (
     UltimaOra                     TIMESTAMP      NOT NULL,
     CFdipendente                  CHAR(16),
     CONSTRAINT FK_presenza        FOREIGN KEY (CFdipendente) references Dipendente (CFdipendente) ON DELETE SET NULL,
-    CONSTRAINT PK_presenza        PRIMARY KEY (PrimaOra, CFdipendente)
+    CONSTRAINT PK_presenza        PRIMARY KEY (PrimaOra, CFdipendente),
+    CONSTRAINT Check_orario		  CHECK(PrimaOra < UltimaOra)					
 );
 
 CREATE TABLE Stipendio (
@@ -81,10 +82,21 @@ CREATE TABLE Prodotto (
     CONSTRAINT FK_prodotto        FOREIGN KEY (NomeBrand) REFERENCES Brand (NomeBrand) ON DELETE SET NULL
 );
 
+/* Tabella modificata, popolamento dell'offerta da rifare */
 CREATE TABLE Offerta (
     CodiceOfferta                 VARCHAR(10)    PRIMARY KEY,
-    PeriodoOfferta                CHAR(3)        NOT NULL,
-    TipoOfferta                   VARCHAR(25)    NOT NULL
+    DataInizio                    CHAR(3)        NOT NULL,
+    DataFine                      VARCHAR(25)    NOT NULL,
+    CONSTRAINT Data_Offerta		  CHECK(DataInizio < DataFine)
+);
+
+CREATE TABLE Offerta_Riguarda (
+	CodiceOfferta		   	      VARCHAR(10),
+	CodiceProdotto				  CHAR(8),
+	ScontoApplicato		     	  NUMBER(2,2),
+    CodiceABarre                  CHAR(13),
+	CONSTRAINT FK_Off	          FOREIGN KEY (CodiceOfferta) REFERENCES Offerta (CodiceOfferta) ON DELETE SET NULL,	
+	CONSTRAINT FK_Prod		      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE SET NULL	
 );
 
 CREATE TABLE Offerta_Prodotto (
