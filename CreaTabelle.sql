@@ -34,17 +34,30 @@ CREATE TABLE Stipendio (
     CONSTRAINT PK_stipendio       PRIMARY KEY (DataStipendio, CFdipendente)
 );
 
+CREATE TABLE Ferie (
+    InizioFerie                   DATE,
+    FineFerie                     DATE NOT NULL,
+    CFdipendente                  CHAR(16) NOT NULL,
+    Retribuzione                  NUMBER(4, 2) NOT NULL, -- Forse va fatto un check sulla retribuzione, vedi tu
+    TipoFerie                     VARCHAR(30),
+    CONSTRAINT FK_ferie           FOREIGN KEY (CFdipendente) REFERENCES Dipendente (CFdipendente),
+    CONSTRAINT PK_ferie           PRIMARY KEY (InizioFerie, CFdipendente),
+    CONSTRAINT Check_ferie        CHECK(InizioFerie < FineFerie)
+);
+
 CREATE TABLE Cassa (
     NumCassa                      CHAR(2)        PRIMARY KEY,
     CFdipendente                  CHAR(16)       NOT NULL,
     CONSTRAINT FK_scontrino       FOREIGN KEY (CFDipendente) REFERENCES Dipendente (CFDipendente) ON DELETE SET NULL
 );
 
+/*
 CREATE TABLE Tessera (
     CodiceTessera                 CHAR(5)        PRIMARY KEY,
     ScadenzaTessera               DATE           NOT NULL,
     EmailCliente                  VARCHAR(255)   UNIQUE NOT NULL
 );
+*/
 
 CREATE TABLE Scontrino (
     NumScontrino                  VARCHAR(3),
@@ -52,10 +65,11 @@ CREATE TABLE Scontrino (
     NumCassa                      CHAR(2)        NOT NULL,
     CodiceTessera                 CHAR(5),
     CONSTRAINT FK1_scontrino      FOREIGN KEY (NumCassa) REFERENCES Cassa (NumCassa) ON DELETE SET NULL,
-    CONSTRAINT FK2_scontrino      FOREIGN KEY (CodiceTessera) REFERENCES Tessera (CodiceTessera) ON DELETE SET NULL,
+    -- CONSTRAINT FK2_scontrino      FOREIGN KEY (CodiceTessera) REFERENCES Tessera (CodiceTessera) ON DELETE SET NULL,
     CONSTRAINT PK_scontrino       PRIMARY KEY (NumScontrino, DataScontrino)
 );
 
+/*
 CREATE TABLE Cliente (
     CFcliente                     CHAR(16)       PRIMARY KEY,
     NomeCliente                   VARCHAR(25)    NOT NULL,
@@ -67,6 +81,7 @@ CREATE TABLE Cliente (
     CodiceTessera                 CHAR(5)        NOT NULL,
     CONSTRAINT FK_cliente         FOREIGN KEY (CodiceTessera) REFERENCES Tessera (CodiceTessera) ON DELETE SET NULL
 );
+*/
 
 CREATE TABLE Brand (
     NomeBrand                     VARCHAR(25)    PRIMARY KEY,
@@ -85,8 +100,8 @@ CREATE TABLE Prodotto (
 /* Tabella modificata, popolamento dell'offerta da rifare */
 CREATE TABLE Offerta (
     CodiceOfferta                 VARCHAR(10)    PRIMARY KEY,
-    DataInizio                    CHAR(3)        NOT NULL,
-    DataFine                      VARCHAR(25)    NOT NULL,
+    DataInizio                    DATE           NOT NULL,
+    DataFine                      DATE           NOT NULL,
     CONSTRAINT Data_Offerta		  CHECK(DataInizio < DataFine)
 );
 
