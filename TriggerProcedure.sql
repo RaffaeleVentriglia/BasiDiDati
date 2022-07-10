@@ -157,6 +157,11 @@ EXCEPTION
   THEN RAISE_APPLICATION_ERROR (-20001, 'Lo sconto effettuato non permette un margine di profitto del 30%'); -- è l'output di Danisi, da cambiare
 END;
 
+/*
+    trigger che controlla se il ruolo del dipendente coincide con i vari ruoli
+    presenti all'interno del negozio
+*/
+
 
 
 --------------------- PROCEDURE
