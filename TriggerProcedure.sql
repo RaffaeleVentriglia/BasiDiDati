@@ -136,8 +136,8 @@ FOR EACH ROW
 
 DECLARE 
     Check_Sconto EXCEPTION;
-    Costo_Acquisto_Prodotto CaricoMerce_Prodotto.CostoProdotto%TYPE;
-    Prezzo_Prodotto Prodotto.PrezzoProdotto%TYPE;
+    Costo_Acquisto_Prodotto CaricoMerce_Prodotto.CostoProdotto%Type;
+    Prezzo_Prodotto Prodotto.PrezzoProdotto%Type;
 
 BEGIN 
     SELECT CostoProdotto INTO Costo_Acquisto_Prodotto
@@ -150,7 +150,7 @@ BEGIN
 
     IF (Prezzo_Prodotto * :new.ScontoApplicato) < (Costo_Acquisto_Prodotto * 0.3)
     THEN RAISE Check_Sconto;
-    END IF;    
+    END IF;
 
 EXCEPTION
   WHEN Check_Sconto 
