@@ -153,8 +153,8 @@ BEGIN
     END IF;
 
 EXCEPTION
-  WHEN Check_Sconto 
-  THEN RAISE_APPLICATION_ERROR (-20001, 'Lo sconto effettuato non permette un margine di profitto del 30%'); -- è l'output di Danisi, da cambiare
+  WHEN Check_Sconto
+  THEN RAISE_APPLICATION_ERROR (-20001, 'Lo sconto effettuato non permette un buon margine di profitto'); -- è l'output di Danisi, da cambiare
 END;
 
 /*

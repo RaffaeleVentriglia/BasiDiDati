@@ -48,7 +48,7 @@ CREATE TABLE Ferie (
     FineFerie                     DATE           NOT NULL,
     CFdipendente                  CHAR(16)       NOT NULL,
     Retribuzione                  NUMBER(4, 2)   NOT NULL,
-    TipoFerie                     VARCHAR(30),
+    -- eliminato TipoFerie
     CONSTRAINT FK_ferie           FOREIGN KEY (CFdipendente) REFERENCES Dipendente (CFdipendente),
     CONSTRAINT PK_ferie           PRIMARY KEY (InizioFerie, CFdipendente),
     CONSTRAINT Check_ferie        CHECK (InizioFerie < FineFerie)
