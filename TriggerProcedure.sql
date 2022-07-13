@@ -1,9 +1,8 @@
 --------------------- TRIGGER
 
 /*
-    trigger 1: controlla se, all'inserimento della tupla di un dipendente,
-    questo sia minorenne, e nel caso in cui lo fosse ritornerà l'errore
-    'Dipendente minorenne'. Se è troppo anziana non può lavorare.
+    trigger che controlla se il dipendente inserita abbia un'età
+    inferiore ai 18 anni
 */
 
 CREATE OR REPLACE TRIGGER Minorenne
@@ -21,8 +20,8 @@ EXCEPTION
 END;
 
 /*
-    trigger 2: il dipendente non può iniziare un nuovo turno o presenza, senza che
-               quello precedente sia finito
+    il dipendente non può iniziare un nuovo turno o presenza, senza che
+    quello precedente sia finito
 */
 
 CREATE OR REPLACE TRIGGER Controllo_Turno
@@ -42,8 +41,8 @@ EXCEPTION
 END;
 
 /*
-    trigger 3: il dipendente non può effettuare più di 9 ore di lavoro, considerando
-               anche l'ora di pranzo
+    il dipendente non può effettuare più di 9 ore di lavoro, considerando
+    anche l'ora di pranzo
 */
 
 CREATE OR REPLACE TRIGGER Ore_Lavoro
@@ -62,8 +61,8 @@ EXCEPTION
 END;
 
 /*
-    trigger 4: per una politica aziendale, il negozio apre alle ore 9 e chiude alle ore 21, e quindi
-               la presenza di un dipendente non può andare oltre questi orari
+    per una politica aziendale, il negozio apre alle ore 9 e chiude alle ore 21, e quindi
+    la presenza di un dipendente non può andare oltre questi orari
 */
 
 CREATE OR REPLACE TRIGGER AperturaChiusura
@@ -83,8 +82,8 @@ EXCEPTION
 END;
 
 /*
-    trigger 5: solo i cassieri, i magazzinieri e l'amministratore hanno accesso al portale del magazzino,
-               quindi uno scaffalista non ha credenziali di accesso
+    solo i cassieri, i magazzinieri e l'amministratore hanno accesso al portale del magazzino,
+    quindi uno scaffalista non ha credenziali di accesso
 */
 
 CREATE OR REPLACE TRIGGER AccessoPortale
@@ -101,15 +100,44 @@ EXCEPTION
     THEN RAISE_APPLICATION_ERROR(-20001, 'Il dipendente non ha accesso al portale');
 END;
 
-/*
-    trigger 6: non è possibile vendere prodotti in eccesso alla disponibilità
 
-    trigger 7: controllare se lo stipendio è sufficiente in base al ruolo del dipendente
-*/
+--    controllare se lo stipendio è sufficiente in base al ruolo del dipendente
 
-/*
-    trigger 8: controllo del massimo numero di dipendenti
-*/
+CREATE OR REPLACE TRIGGER MinStipendio
+BEFORE INSERT ON Stipendio
+FOR EACH ROW
+DECLARE
+    mansione VARCHAR(20);
+    contatore NUMBER;
+    contatoreImpiegato NUMBER;
+    Check_Stipendio EXCEPTION;
+BEGIN
+    SELECT COUNT(*), ruolo INTO contatore, mansione FROM Dipendente dip JOIN contratto contr on dip.CFDip = contr.CFDip
+    WHERE contr.CodiceContratto = :new.StipendioContratto
+    GROUP BY CFDip, Ruolo;
+    IF contatore > 0 THEN
+        IF :new.ImportoStipendio < 1250 AND mansione = 'Scaffalista'
+        THEN RAISE Check_Stipendio;
+        ELSIF :new.ImportoStipendio < 1900 AND mansione = 'Magazziniere'
+        THEN RAISE Check_Stipendio;
+        ELSIF :new.ImportoStipendio < 1500 AND mansione = 'Cassiere'
+        THEN RAISE Check_Stipendio;
+        ELSIF :new.ImportoStipendio < 2500 AND mansione = 'Dirigente'
+        THEN RAISE Check_Stipendio;
+    END IF;
+
+EXCEPTION
+WHEN NO_DATA_FOUND THEN
+    IF :new.importo < 1200
+        THEN Check_Stipendio;
+    END IF;
+WHEN Check_Stipendio
+    THEN raise_application_error(-20001,'Stipendio inferiore a quello minimo per questa data mansione.');
+END;
+
+
+--    controllo del massimo numero di dipendenti
+
 CREATE OR REPLACE TRIGGER MaxDipendenti
 BEFORE INSERT ON Dipendente
 FOR EACH ROW
@@ -126,9 +154,7 @@ EXCEPTION
     THEN RAISE_APPLICATION_ERROR(-20001, 'Numero massimo di dipendenti raggiunto.');
 END;
 
-/*
-    trigger 9: impedisce alla promozione di fare uno sconto eccessivo (NON HO CONTROLLATO SE FUNZIONA)
-*/
+--    impedisce alla promozione di fare uno sconto eccessivo (NON HO CONTROLLATO SE FUNZIONA)
 
 CREATE OR REPLACE Max_Offerta
 BEFORE INSERT OR UPDATE ON Offerta
@@ -157,20 +183,51 @@ EXCEPTION
   THEN RAISE_APPLICATION_ERROR (-20001, 'Lo sconto effettuato non permette un buon margine di profitto'); -- è l'output di Danisi, da cambiare
 END;
 
-/*
-    trigger che controlla se il ruolo del dipendente coincide con i vari ruoli
-    presenti all'interno del negozio
-*/
+--    trigger che controlla se il ruolo del dipendente coincide con i vari ruoli
+--    presenti all'interno del negozio
 
+CREATE OR REPLACE TRIGGER RuoloEsatto
+BEFORE INSERT ON Dipendente
+FOR EACH ROW
+DECLARE
+    Check_Ruolo EXCEPTION;
+BEGIN
+    IF :new.Ruolo <> 'Scaffalista' AND :new.Ruolo <> 'Magazziniere' AND :new.Ruolo <> 'Cassiere' AND :new.Ruolo <> 'Dirigente'
+        THEN RAISE Check_Ruolo;
+    END IF;
+EXCEPTION
+    WHEN Check_Accesso_Portale
+    THEN RAISE_APPLICATION_ERROR(-20001, 'Ruolo inesistente.');
+END;
+
+--    trigger che controlla le scadenze per ogni tipo di contratto
+
+CREATE OR REPLACE TRIGGER ContrattoIndeterminato
+BEFORE INSERT ON Contratto
+FOR EACH ROW
+DECLARE
+    Check_Contratto EXCEPTION;
+BEGIN
+    IF :new.TipoContratto = 'Indeterminato' AND FineContratto IS NOT NULL
+        THEN RAISE Check_Contratto;
+    ELSIF (:new.TipoContratto = 'Part-time' OR :new.TipoContratto = 'Determinato') AND FineContratto IS NULL
+        THEN RAISE Check_Contratto;
+    ELSIF :new.TipoContratto <> 'Indeterminato' AND :new.TipoContratto <> 'Determinato' AND :new.TipoContratto <> 'Part-time'
+        THEN RAISE Check_Contratto
+    END IF;
+EXCEPTION
+    WHEN Check_Contratto
+    THEN RAISE_APPLICATION_ERROR(-20001, 'La scadenza inserita per questo contratto non è valida.');
+END;
 
 
 --------------------- PROCEDURE
 
 /*
 
-    procedura 1: promuove l'impiegato che lavora di più
+    procedura che promuove l'impiegato che lavora di più
 
 
-    procedura 2: converte i soldi spesi in punti tessera
+    procedura che 
 
 */
