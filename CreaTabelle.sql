@@ -1,10 +1,10 @@
 CREATE TABLE Credenziali (
     Username                      VARCHAR(25)    PRIMARY KEY,
-    Passwd                        VARCHAR(25)    NOT NULL
+    Passwd                        VARCHAR(25)    NOT NULL CHECK (LENGTH(Passwd) > 10)
 );
 
 CREATE TABLE Dipendente (
-    CFDip                  CHAR(16)       PRIMARY KEY,
+    CFDip                         CHAR(16)       PRIMARY KEY,
     NomeDipendente                VARCHAR(25)    NOT NULL,
     CognomeDipendente             VARCHAR(25)    NOT NULL,
     DNdipendente                  DATE           NOT NULL,
@@ -28,17 +28,17 @@ CREATE TABLE Contratto (
 CREATE TABLE Presenza (
     PrimaOra                      TIMESTAMP,
     UltimaOra                     TIMESTAMP      NOT NULL,
-    CFDip                  CHAR(16),
+    CFDip                         CHAR(16),
     CONSTRAINT FK_presenza        FOREIGN KEY (CFDip) REFERENCES Dipendente (CFDip) ON DELETE SET NULL,
     CONSTRAINT PK_presenza        PRIMARY KEY (PrimaOra, CFDip),
     CONSTRAINT Check_presenza	  CHECK(PrimaOra < UltimaOra)					
 );
 
 CREATE TABLE Stipendio (
-    ImportoStipendio              NUMBER(6,2)    NOT NULL CHECK (ImportoStipendio >= 1400),
+    ImportoStipendio              NUMBER(6,2)    NOT NULL CHECK (ImportoStipendio >= 1000),
     TrattenuteStipendio           NUMBER(5,2)    NOT NULL,
     DataStipendio                 DATE,
-    CFDip                  CHAR(16),
+    CFDip                         CHAR(16),
     CONSTRAINT FK_stipendio       FOREIGN KEY (CFDip) REFERENCES Dipendente (CFDip) ON DELETE CASCADE,
     CONSTRAINT PK_stipendio       PRIMARY KEY (DataStipendio, CFDip)
 );
@@ -46,9 +46,8 @@ CREATE TABLE Stipendio (
 CREATE TABLE Ferie (
     InizioFerie                   DATE,
     FineFerie                     DATE           NOT NULL,
-    CFDip                  CHAR(16)       NOT NULL,
+    CFDip                         CHAR(16)       NOT NULL,
     Retribuzione                  NUMBER(4, 2)   NOT NULL,
-    -- eliminato TipoFerie
     CONSTRAINT FK_ferie           FOREIGN KEY (CFDip) REFERENCES Dipendente (CFDip),
     CONSTRAINT PK_ferie           PRIMARY KEY (InizioFerie, CFDip),
     CONSTRAINT Check_ferie        CHECK (InizioFerie < FineFerie)
@@ -56,7 +55,7 @@ CREATE TABLE Ferie (
 
 CREATE TABLE Cassa (
     NumCassa                      CHAR(2)        PRIMARY KEY,
-    CFDip                  CHAR(16)       NOT NULL,
+    CFDip                         CHAR(16)       NOT NULL,
     CONSTRAINT FK_scontrino       FOREIGN KEY (CFDip) REFERENCES Dipendente (CFDip) ON DELETE SET NULL
 );
 
