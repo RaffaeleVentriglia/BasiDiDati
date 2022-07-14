@@ -47,7 +47,7 @@ CREATE TABLE Ferie (
     InizioFerie                   DATE,
     FineFerie                     DATE           NOT NULL,
     CFDip                         CHAR(16)       NOT NULL,
-    Retribuzione                  NUMBER(4, 2)   NOT NULL,
+    Retribuzione                  NUMBER(6, 2)   NOT NULL,
     CONSTRAINT FK_ferie           FOREIGN KEY (CFDip) REFERENCES Dipendente (CFDip),
     CONSTRAINT PK_ferie           PRIMARY KEY (InizioFerie, CFDip),
     CONSTRAINT Check_ferie        CHECK (InizioFerie < FineFerie)
@@ -60,10 +60,9 @@ CREATE TABLE Cassa (
 );
 
 CREATE TABLE Scontrino (
-    NumScontrino                  VARCHAR(3),
+    NumScontrino                  CHAR(3),
     DataScontrino                 DATE,
     NumCassa                      CHAR(2)        NOT NULL,
-    CodiceTessera                 CHAR(5),
     CONSTRAINT FK1_scontrino      FOREIGN KEY (NumCassa) REFERENCES Cassa (NumCassa) ON DELETE SET NULL,
     CONSTRAINT PK_scontrino       PRIMARY KEY (NumScontrino, DataScontrino)
 );
@@ -83,25 +82,25 @@ CREATE TABLE Prodotto (
 );
 
 CREATE TABLE Offerta (
-    CodiceOfferta                 VARCHAR(10)    PRIMARY KEY,
-    DataInizio                    CHAR(3)        NOT NULL,
-    DataFine                      VARCHAR(25)    NOT NULL,
+    CodiceOfferta                 CHAR(3)    PRIMARY KEY,
+    DataInizio                    DATE       NOT NULL,
+    DataFine                      DATE       NOT NULL,
     CONSTRAINT Data_Offerta		  CHECK (DataInizio < DataFine)
 );
 
 CREATE TABLE Offerta_Prodotto (
     CodiceABarre                  CHAR(13),
-	CodiceOfferta		   	      VARCHAR(10),
-	ScontoApplicato		     	  NUMBER(2,2),
+	CodiceOfferta		   	      CHAR(3),
+	ScontoApplicato		     	  NUMBER(3,2),
 	CONSTRAINT FK_Off	          FOREIGN KEY (CodiceOfferta) REFERENCES Offerta (CodiceOfferta) ON DELETE SET NULL,	
 	CONSTRAINT FK_Prod		      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE SET NULL	
 );
 
 CREATE TABLE Scontrino_Prodotto (
-    NumScontrino                  VARCHAR(3),
+    NumScontrino                  CHAR(3),
     DataScontrino                 DATE,
     CodiceABarre                  CHAR(13),
-    QuantitaVendute               NUMBER(2),
+    QuantitaVendute               NUMBER(4),
     CONSTRAINT FK1_scontprod      FOREIGN KEY (NumScontrino, DataScontrino) REFERENCES Scontrino (NumScontrino, DataScontrino) ON DELETE CASCADE,
     CONSTRAINT FK2_scontprod      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE CASCADE,
     CONSTRAINT PK_scontprod       PRIMARY KEY (NumScontrino, DataScontrino, CodiceABarre)
