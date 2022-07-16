@@ -26,7 +26,7 @@ CREATE TABLE Contratto (
 );
 
 CREATE TABLE Stipendio (
-    ImportoStipendio              NUMBER(6,2)    NOT NULL CHECK (ImportoStipendio >= 1000),
+    ImportoStipendio              NUMBER(6,2)    NOT NULL CHECK (ImportoStipendio >= 1250),
     TrattenuteStipendio           NUMBER(5,2)    NOT NULL,
     DataStipendio                 DATE,
     CodiceContratto               CHAR(7) NOT NULL,

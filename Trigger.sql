@@ -121,7 +121,7 @@ BEGIN
 
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
-        IF :new.ImportoStipendio < 1250
+        IF :new.ImportoStipendio <= 1250
             THEN RAISE Check_Stipendio;
         END IF;
     WHEN Check_Stipendio
