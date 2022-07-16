@@ -76,3 +76,15 @@ GROUP BY Ac.CodiceABarre
 ORDER BY SUM(QuantitaVendute) DESC
 FETCH FIRST 10 ROW ONLY;
 /
+
+
+-- vista che permette di visualizzare gli scontrini con annesso prezzo totale
+
+CREATE OR REPLACE VIEW TotaleScontrini AS
+SELECT scontr_prod.NumScontrino AS Numero_Scontrino, scontr_prod.DataScontrino AS Data_Scontrino, MAX(scontr.NumCassa) as Cassa, SUM(prod.PrezzoProdotto) * SUM(scontr_prod.QuantitaVendute) AS Totale
+FROM Cassa cs JOIN Scontrino scontr on cs.NumCassa = scontr.NumCassa
+JOIN Scontrino_Prodotto scontr_prod ON scontr.NumScontrino = scontr_prod.NumScontrino JOIN Prodotto prod ON scontr_prod.CodiceABarre = prod.CodiceABarre
+GROUP BY scontr_prod.NumScontrino, scontr_prod.DataScontrino
+ORDER BY scontr_prod.DataScontrino DESC;
+
+-- I GESTORI POSSONO ACCEDERE A TUTTO MENO CHE I DIPENDENTI, I CASSIERI SOLO AGLI SCONTRINI

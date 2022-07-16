@@ -38,6 +38,7 @@ INSERT INTO Dipendente VALUES ('RKNIVQ17Q56K462W', 'Giuseppe', 'Verde', DATE '20
 INSERT INTO Dipendente VALUES ('JHMDHM13R67X714P', 'Maria', 'Mazzini', DATE '2000-09-15', 'Via Liberti', '38122', 'Trento', 'maria.mazzini', 'Magazziniere');
 INSERT INTO Dipendente VALUES ('DOSLHP83T20C898N', 'Marta', 'Porzio', DATE '1999-01-05', 'Via Tinckel', '06127', 'Perugia', 'marta.porzio', 'Magazziniere');
 INSERT INTO Dipendente VALUES ('UXETBB25N85F898Y', 'Osea', 'Martini', DATE '1960-06-15', 'Via Piererminio', '46100', 'Mantova', 'osea.martini', 'Dirigente');
+-- INSERIRE 2 DIPENDENTI DI RUOLO "GESTORE"
 
 
 -- contratti validi
