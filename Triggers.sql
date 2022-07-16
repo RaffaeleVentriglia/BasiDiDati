@@ -15,7 +15,7 @@ EXCEPTION
     WHEN Check_Eta
         THEN RAISE_APPLICATION_ERROR(-20001, 'Dipendente troppo piccolo o troppo grande.');
 END;
-
+/
 
 --    il dipendente non può iniziare un nuovo turno o presenza, senza che
 --    quello precedente sia finito
@@ -35,7 +35,7 @@ EXCEPTION
     WHEN Check_Turno
         THEN RAISE_APPLICATION_ERROR(-20001, 'Errore nei turni inseriti');
 END;
-
+/
 
 --    il dipendente non può effettuare più di 9 ore di lavoro, considerando
 --    anche l'ora di pranzo
@@ -54,7 +54,7 @@ EXCEPTION
     WHEN Check_Ore_Lavoro
         THEN RAISE_APPLICATION_ERROR(-20001, 'Ore di lavoro superate');
 END;
-
+/
 
 --    per una politica aziendale, il negozio apre alle ore 9 e chiude alle ore 21, e quindi
 --    la presenza di un dipendente non può andare oltre questi orari
@@ -74,7 +74,7 @@ EXCEPTION
     WHEN Check_Apertura_Chiusura
         THEN RAISE_APPLICATION_ERROR(-20001, 'Orari di inizio o fine turno errati');
 END;
-
+/
 
 --    solo i cassieri, i magazzinieri e l'amministratore hanno accesso al portale del magazzino,
 --    quindi uno scaffalista non ha credenziali di accesso
@@ -92,7 +92,7 @@ EXCEPTION
     WHEN Check_Accesso_Portale
         THEN RAISE_APPLICATION_ERROR(-20001, 'Il dipendente non ha accesso al portale');
 END;
-
+/
 
 --    controllare se lo stipendio è sufficiente in base al ruolo del dipendente
 
@@ -127,7 +127,7 @@ EXCEPTION
     WHEN Check_Stipendio
         THEN raise_application_error(-20001,'Stipendio inferiore a quello minimo per questa data mansione.');
 END;
-
+/
 --    controllo del massimo numero di dipendenti
 
 CREATE OR REPLACE TRIGGER MaxDipendenti
@@ -145,7 +145,7 @@ EXCEPTION
     WHEN Check_Max_Dipendenti
         THEN RAISE_APPLICATION_ERROR(-20001, 'Numero massimo di dipendenti raggiunto.');
 END;
-
+/
 --    trigger che controlla se il ruolo del dipendente coincide con i vari ruoli
 --    presenti all'interno del negozio
 
@@ -162,7 +162,7 @@ EXCEPTION
     WHEN Check_Ruolo
         THEN RAISE_APPLICATION_ERROR(-20001, 'Ruolo inesistente.');
 END;
-
+/
 --    trigger che controlla le scadenze per ogni tipo di contratto
 
 CREATE OR REPLACE TRIGGER ContrattoIndeterminato
@@ -171,12 +171,14 @@ FOR EACH ROW
 DECLARE
     Check_Contratto EXCEPTION;
 BEGIN
-    IF :new.TipoContratto = 'Indeterminato' AND :new.FineContratto IS NOT NULL
-        THEN RAISE Check_Contratto;
-    ELSIF (:new.TipoContratto = 'Part-time' OR :new.TipoContratto = 'Determinato') AND :new.FineContratto IS NULL
-        THEN RAISE Check_Contratto;
-    ELSIF :new.TipoContratto <> 'Indeterminato' AND :new.TipoContratto <> 'Determinato' AND :new.TipoContratto <> 'Part-time'
-        THEN RAISE Check_Contratto;
+    IF :new.FineContratto > SYSDATE THEN
+        IF :new.TipoContratto = 'Indeterminato' AND :new.FineContratto IS NOT NULL
+            THEN RAISE Check_Contratto;
+        ELSIF (:new.TipoContratto = 'Part-time' OR :new.TipoContratto = 'Determinato') AND :new.FineContratto IS NULL
+            THEN RAISE Check_Contratto;
+        ELSIF :new.TipoContratto <> 'Indeterminato' AND :new.TipoContratto <> 'Determinato' AND :new.TipoContratto <> 'Part-time'
+            THEN RAISE Check_Contratto;
+        END IF;
     END IF;
 EXCEPTION
     WHEN Check_Contratto
