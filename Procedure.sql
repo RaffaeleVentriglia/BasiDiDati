@@ -80,7 +80,7 @@ END;
     il mese prossimo.
 */
 
-CREATE OR REPLACE PROCEDURE DipendentePiuProduttivo
+CREATE OR REPLACE PROCEDURE CassierePiuProduttivo
 IS
     CF                  Cassa.CFDip%type;
     UltimoContratto     Contratto.CodiceContratto%type;
@@ -91,7 +91,7 @@ BEGIN
     SELECT cs.CFDip, MAX(contr.CodiceContratto) INTO CF, UltimoContratto
     FROM Cassa cs JOIN Contratto contr ON cs.CFDip = contr.CFDip JOIN Scontrino scontr ON cs.NumCassa = scontr.NumCassa
     JOIN Scontrino_Prodotto scontr_prod ON scontr.NumScontrino = scontr_prod.NumScontrino JOIN Prodotto prod ON scontr_prod.CodiceABarre = prod.CodiceABarre 
-    WHERE (ADD_MONTHS(SYSDATE, 1) BETWEEN InizioContratto AND FineContratto) AND TO_CHAR(ADD_MONTHS(SYSDATE, -1), 'MM-YYYY') = TO_CHAR(ADD_MONTHS(scontr.DataScontrino, -1), 'MM-YYYY')
+    WHERE (FineContratto IS NULL OR (ADD_MONTHS(SYSDATE, 1) BETWEEN InizioContratto AND FineContratto))AND TO_CHAR(ADD_MONTHS(SYSDATE, -1), 'MM-YYYY') = TO_CHAR(ADD_MONTHS(scontr.DataScontrino, -1), 'MM-YYYY')
     GROUP BY cs.CFDip
     ORDER BY SUM(prod.PrezzoProdotto) DESC
     FETCH FIRST 1 ROW ONLY;

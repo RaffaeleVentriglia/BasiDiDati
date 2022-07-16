@@ -163,7 +163,10 @@ EXCEPTION
         THEN RAISE_APPLICATION_ERROR(-20001, 'Ruolo inesistente.');
 END;
 /
+
+
 --    trigger che controlla le scadenze per ogni tipo di contratto
+-- DA CONTROLLARE
 
 CREATE OR REPLACE TRIGGER ContrattoIndeterminato
 BEFORE INSERT ON Contratto
