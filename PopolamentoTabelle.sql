@@ -16,8 +16,6 @@ INSERT INTO Credenziali VALUES ('cleopatra.amato', '3Y5CCUBbIeMi');
 INSERT INTO Credenziali VALUES ('germano.damico', 'VQoPlxvcinZ5');
 INSERT INTO Credenziali VALUES ('umberto.russo', 'iCrPj70kINdb');
 INSERT INTO Credenziali VALUES ('siro.santoro', 'JaAnqYrmf9L3');
-INSERT INTO Credenziali VALUES ('paolo.gatti', 'xP19vV3wmoJX');
-INSERT INTO Credenziali VALUES ('leone.palmieri', 'KMOS3s0ECBUV');
 
 
 -- SCAFFALISTI
@@ -43,8 +41,8 @@ INSERT INTO Dipendente VALUES ('RKNIVQ17Q56K462W', 'Giuseppe', 'Verde', DATE '20
 INSERT INTO Dipendente VALUES ('JHMDHM13R67X714P', 'Maria', 'Mazzini', DATE '2000-09-15', 'Via Liberti', '38122', 'Trento', 'maria.mazzini', 'Magazziniere');
 INSERT INTO Dipendente VALUES ('DOSLHP83T20C898N', 'Marta', 'Porzio', DATE '1999-01-05', 'Via Tinckel', '06127', 'Perugia', 'marta.porzio', 'Magazziniere');
 -- Tecnici
-INSERT INTO Dipendente VALUES ('RQWPTO91I32V669K', 'Paolo', 'Gatti', DATE '1988-12-04', 'Via Roma', '35127', 'Padova', 'paolo.gatti', 'Tecnico');
-INSERT INTO Dipendente VALUES ('YTXDNA54L37A389P', 'Leone', 'Palmieri', DATE '1984-09-08', 'Via Napoli', '38122', 'Trento', 'leone.palmieri', 'Tecnico');
+INSERT INTO Dipendente VALUES ('RQWPTO91I32V669K', 'Paolo', 'Gatti', DATE '1988-12-04', 'Via Roma', '35127', 'Padova', NULL, 'Tecnico');
+INSERT INTO Dipendente VALUES ('YTXDNA54L37A389P', 'Leone', 'Palmieri', DATE '1984-09-08', 'Via Napoli', '38122', 'Trento', NULL, 'Tecnico');
 -- DIRIGENTE
 INSERT INTO Dipendente VALUES ('UXETBB25N85F898Y', 'Osea', 'Martini', DATE '1960-06-15', 'Via Piererminio', '46100', 'Mantova', 'osea.martini', 'Dirigente');
 -- INSERIRE 2 DIPENDENTI DI RUOLO "GESTORE"
@@ -519,7 +517,7 @@ INSERT INTO Offerta VALUES ('125', DATE '2021-11-17', DATE '2021-11-27');
 INSERT INTO Offerta VALUES ('861', DATE '2021-12-07', DATE '2021-12-17');
 
 
--- OFFERTE PER VIDEOGIOCHI
+-- OFFERTE VALIDE PER VIDEOGIOCHI
 INSERT INTO Offerta_Prodotto VALUES ('3877265963667', '731', 0.05);
 INSERT INTO Offerta_Prodotto VALUES ('5261672851322', '410', 0.05);
 INSERT INTO Offerta_Prodotto VALUES ('8689163198377', '368', 0.20);
@@ -542,7 +540,13 @@ INSERT INTO Offerta_Prodotto VALUES ('2574368316778', '400', 0.15);
 INSERT INTO Offerta_Prodotto VALUES ('5874215310098', '844', 0.10);
 INSERT INTO Offerta_Prodotto VALUES ('8442548626056', '539', 0.05);
 INSERT INTO Offerta_Prodotto VALUES ('7246393676323', '866', 0.25);
--- OFFERTE PER CONSOLE
+-- OFFERTE NON VALIDE PER VIDEOGIOCHI
+INSERT INTO Offerta_Prodotto VALUES ('1763091652981', '194', 0.15);
+INSERT INTO Offerta_Prodotto VALUES ('5849904171315', '583', 0.35);
+INSERT INTO Offerta_Prodotto VALUES ('1802326769756', '851', 0.20);
+INSERT INTO Offerta_Prodotto VALUES ('2227993193892', '150', 0.45);
+INSERT INTO Offerta_Prodotto VALUES ('7656086480717', '408', 0.15);
+-- OFFERTE VALIDE PER CONSOLE
 INSERT INTO Offerta_Prodotto VALUES ('7551569504789', '181', 0.20);
 INSERT INTO Offerta_Prodotto VALUES ('8328677709326', '174', 0.40);
 INSERT INTO Offerta_Prodotto VALUES ('8020873584468', '399', 0.10);
@@ -558,7 +562,13 @@ INSERT INTO Offerta_Prodotto VALUES ('5117654552206', '400', 0.15);
 INSERT INTO Offerta_Prodotto VALUES ('5946997088647', '844', 0.10);
 INSERT INTO Offerta_Prodotto VALUES ('7572733277975', '539', 0.05);
 INSERT INTO Offerta_Prodotto VALUES ('4181906887663', '866', 0.25);
--- OFFERTE PER ACCESSORI
+-- OFFERTE NON VALIDE PER CONSOLE
+INSERT INTO Offerta_Prodotto VALUES ('2745997206278', '214', 0.35);
+INSERT INTO Offerta_Prodotto VALUES ('4967864464771', '423', 0.15);
+INSERT INTO Offerta_Prodotto VALUES ('5546466222023', '167', 0.20);
+INSERT INTO Offerta_Prodotto VALUES ('4695129417494', '448', 0.25);
+INSERT INTO Offerta_Prodotto VALUES ('3963478393918', '602', 0.20);
+-- OFFERTE VALIDE PER ACCESSORI
 INSERT INTO Offerta_Prodotto VALUES ('3286046443005', '181', 0.20);
 INSERT INTO Offerta_Prodotto VALUES ('2436541758173', '174', 0.40);
 INSERT INTO Offerta_Prodotto VALUES ('4697876716421', '399', 0.10);
@@ -574,6 +584,12 @@ INSERT INTO Offerta_Prodotto VALUES ('7653894118883', '400', 0.15);
 INSERT INTO Offerta_Prodotto VALUES ('7920684151328', '844', 0.10);
 INSERT INTO Offerta_Prodotto VALUES ('9527052293741', '539', 0.05);
 INSERT INTO Offerta_Prodotto VALUES ('8277809882409', '866', 0.25);
+-- OFFERTE NON VALIDE PER ACCESSORI
+INSERT INTO Offerta_Prodotto VALUES ('4818043864696', '601', 0.15);
+INSERT INTO Offerta_Prodotto VALUES ('5946084403818', '546', 0.20);
+INSERT INTO Offerta_Prodotto VALUES ('8433307812551', '219', 0.25);
+INSERT INTO Offerta_Prodotto VALUES ('3931877761221', '125', 0.35);
+INSERT INTO Offerta_Prodotto VALUES ('3726977003226', '861', 0.30);
 
 
 -- SCONTRINI PER VIDEOGIOCHI
