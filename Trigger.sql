@@ -87,6 +87,8 @@ DECLARE
 BEGIN
     IF :new.Ruolo = 'Scaffalista' AND :new.Username IS NOT NULL
         THEN RAISE Check_Accesso_Portale;
+    ELSIF :new.Ruolo = 'Tecnico' AND :new.Username IS NOT NULL
+        THEN RAISE Check_Accesso_Portale;
     END IF;
 EXCEPTION
     WHEN Check_Accesso_Portale
