@@ -42,9 +42,9 @@ INSERT INTO Dipendente VALUES ('RKNIVQ17Q56K462W', 'Giuseppe', 'Verde', DATE '20
 -- MAGAZZINIERI
 INSERT INTO Dipendente VALUES ('JHMDHM13R67X714P', 'Maria', 'Mazzini', DATE '2000-09-15', 'Via Liberti', '38122', 'Trento', 'maria.mazzini', 'Magazziniere');
 INSERT INTO Dipendente VALUES ('DOSLHP83T20C898N', 'Marta', 'Porzio', DATE '1999-01-05', 'Via Tinckel', '06127', 'Perugia', 'marta.porzio', 'Magazziniere');
--- GESTORI
-INSERT INTO Dipendente VALUES ('RQWPTO91I32V669K', 'Paolo', 'Gatti', DATE '1988-12-04', 'Via Roma', '35127', 'Padova', 'paolo.gatti', 'Gestore');
-INSERT INTO Dipendente VALUES ('YTXDNA54L37A389P', 'Leone', 'Palmieri', DATE '1984-09-08', 'Via Napoli', '38122', 'Trento', 'leone.palmieri', 'Gestore');
+-- Tecnici
+INSERT INTO Dipendente VALUES ('RQWPTO91I32V669K', 'Paolo', 'Gatti', DATE '1988-12-04', 'Via Roma', '35127', 'Padova', 'paolo.gatti', 'Tecnico');
+INSERT INTO Dipendente VALUES ('YTXDNA54L37A389P', 'Leone', 'Palmieri', DATE '1984-09-08', 'Via Napoli', '38122', 'Trento', 'leone.palmieri', 'Tecnico');
 -- DIRIGENTE
 INSERT INTO Dipendente VALUES ('UXETBB25N85F898Y', 'Osea', 'Martini', DATE '1960-06-15', 'Via Piererminio', '46100', 'Mantova', 'osea.martini', 'Dirigente');
 -- INSERIRE 2 DIPENDENTI DI RUOLO "GESTORE"
@@ -103,7 +103,7 @@ INSERT INTO Contratto VALUES ('ILUHFEN', 'Determinato', DATE '2012-04-15', DATE 
 --    Scaffalista:  >= 1250
 --    Cassiere:     >= 1500
 --    Magazziniere: >= 1900
---    Gestore:      >= 2200
+--    Tecnico:      >= 2200
 --    Dirigente:    >= 2500
 INSERT INTO Stipendio VALUES (1580.50, 200.00, DATE '2022-01-10', 'FHE43NP');
 INSERT INTO Stipendio VALUES (1580.50, 200.00, DATE '2022-02-10', 'FHE43NP');

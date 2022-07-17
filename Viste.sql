@@ -91,4 +91,4 @@ JOIN Scontrino_Prodotto scontr_prod ON scontr.NumScontrino = scontr_prod.NumScon
 GROUP BY scontr_prod.NumScontrino, scontr_prod.DataScontrino
 ORDER BY scontr_prod.DataScontrino DESC;
 
--- I GESTORI POSSONO ACCEDERE A TUTTO MENO CHE I DIPENDENTI, I CASSIERI SOLO AGLI SCONTRINI
+-- I TECNICI POSSONO ACCEDERE A TUTTO MENO CHE I DIPENDENTI, I CASSIERI SOLO AGLI SCONTRINI
