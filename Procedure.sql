@@ -79,6 +79,7 @@ END;
 /*
     Procedura 3: Il dipendente che ha fatto incassare di più nel mese precedente ottiene un aumento del 10%
     il mese prossimo.
+    DA CONTROLLARE
 */
 
 CREATE OR REPLACE PROCEDURE CassierePiuProduttivo
@@ -94,7 +95,7 @@ BEGIN
     JOIN Scontrino_Prodotto scontr_prod ON scontr.NumScontrino = scontr_prod.NumScontrino JOIN Prodotto prod ON scontr_prod.CodiceABarre = prod.CodiceABarre 
     WHERE (FineContratto IS NULL OR (ADD_MONTHS(SYSDATE, 1) BETWEEN InizioContratto AND FineContratto))AND TO_CHAR(ADD_MONTHS(SYSDATE, -1), 'MM-YYYY') = TO_CHAR(ADD_MONTHS(scontr.DataScontrino, -1), 'MM-YYYY')
     GROUP BY cs.CFDip
-    ORDER BY SUM(prod.PrezzoProdotto) * QuantitaVendute DESC
+    ORDER BY SUM(prod.PrezzoProdotto) * SUM(QuantitaVendute) DESC
     FETCH FIRST 1 ROW ONLY;
 
     SELECT ImportoStipendio, TrattenuteStipendio, DataStipendio INTO UltimoStipendio, UltimeTrattenute, DataUltimoStipendio FROM Stipendio 
@@ -109,8 +110,6 @@ EXCEPTION
     WHEN NO_DATA_FOUND
         THEN RAISE_APPLICATION_ERROR(-20001, 'Errore nei dati.');
 END;
-
-
 --exec DipendentePiuProduttivo;
     
 

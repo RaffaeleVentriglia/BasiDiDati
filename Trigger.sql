@@ -148,23 +148,6 @@ EXCEPTION
         THEN RAISE_APPLICATION_ERROR(-20001, 'Numero massimo di dipendenti raggiunto.');
 END;
 /
---    trigger che controlla se il ruolo del dipendente coincide con i vari ruoli
---    presenti all'interno del negozio
-
-CREATE OR REPLACE TRIGGER RuoloEsatto
-BEFORE INSERT ON Dipendente
-FOR EACH ROW
-DECLARE
-    Check_Ruolo EXCEPTION;
-BEGIN
-    IF :new.Ruolo <> 'Scaffalista' AND :new.Ruolo <> 'Magazziniere' AND :new.Ruolo <> 'Cassiere' AND :new.Ruolo <> 'Gestore' AND :new.Ruolo <> 'Dirigente'
-        THEN RAISE Check_Ruolo;
-    END IF;
-EXCEPTION
-    WHEN Check_Ruolo
-        THEN RAISE_APPLICATION_ERROR(-20001, 'Ruolo inesistente.');
-END;
-/
 
 
 --    trigger che controlla le scadenze per ogni tipo di contratto

@@ -13,6 +13,7 @@ CREATE TABLE Dipendente (
     CittaDip                      VARCHAR2(25)    NOT NULL,
     Username                      VARCHAR2(25)    UNIQUE,
     Ruolo                         VARCHAR2(20)    NOT NULL,
+    CONSTRAINT Check_Dipendente   CHECK (Ruolo IN ('Scaffalista', 'Magazziniere', 'Cassiere', 'Dirigente', 'Gestore')),
     CONSTRAINT FK_dipendente      FOREIGN KEY (Username) REFERENCES Credenziali (Username) ON DELETE SET NULL
 );
 

@@ -1,6 +1,6 @@
 -- vista che permette di visualizzare i dipendenti con contratti attivi
 
-CREATE OR REPLACE VIEW RuoloDipendentiAttivi AS
+CREATE OR REPLACE VIEW DipendentiAttivi AS
 SELECT 
     Dip.CFDip, 
     NomeDipendente, 
