@@ -40,7 +40,7 @@ INSERT INTO Dipendente VALUES ('RKNIVQ17Q56K462W', 'Giuseppe', 'Verde', DATE '20
 -- MAGAZZINIERI
 INSERT INTO Dipendente VALUES ('JHMDHM13R67X714P', 'Maria', 'Mazzini', DATE '2000-09-15', 'Via Liberti', '38122', 'Trento', 'maria.mazzini', 'Magazziniere');
 INSERT INTO Dipendente VALUES ('DOSLHP83T20C898N', 'Marta', 'Porzio', DATE '1999-01-05', 'Via Tinckel', '06127', 'Perugia', 'marta.porzio', 'Magazziniere');
--- Tecnici
+-- TECNICI
 INSERT INTO Dipendente VALUES ('RQWPTO91I32V669K', 'Paolo', 'Gatti', DATE '1988-12-04', 'Via Roma', '35127', 'Padova', NULL, 'Tecnico');
 INSERT INTO Dipendente VALUES ('YTXDNA54L37A389P', 'Leone', 'Palmieri', DATE '1984-09-08', 'Via Napoli', '38122', 'Trento', NULL, 'Tecnico');
 -- DIRIGENTE
