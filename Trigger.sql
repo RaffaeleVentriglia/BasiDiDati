@@ -114,6 +114,8 @@ BEGIN
             THEN RAISE Check_Stipendio;
         ELSIF :new.ImportoStipendio < 1500 AND mansione = 'Cassiere'
             THEN RAISE Check_Stipendio;
+        ELSIF :new.ImportoStipendio < 2200 AND mansione = 'Gestore'
+            THEN RAISE Check_Stipendio;
         ELSIF :new.ImportoStipendio < 2500 AND mansione = 'Dirigente'
             THEN RAISE Check_Stipendio;
         END IF;
