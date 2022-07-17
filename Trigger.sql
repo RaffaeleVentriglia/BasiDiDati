@@ -157,7 +157,7 @@ FOR EACH ROW
 DECLARE
     Check_Ruolo EXCEPTION;
 BEGIN
-    IF :new.Ruolo <> 'Scaffalista' AND :new.Ruolo <> 'Magazziniere' AND :new.Ruolo <> 'Cassiere' AND :new.Ruolo <> 'Dirigente'
+    IF :new.Ruolo <> 'Scaffalista' AND :new.Ruolo <> 'Magazziniere' AND :new.Ruolo <> 'Cassiere' AND :new.Ruolo <> 'Gestore' AND :new.Ruolo <> 'Dirigente'
         THEN RAISE Check_Ruolo;
     END IF;
 EXCEPTION
