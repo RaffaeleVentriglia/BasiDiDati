@@ -130,7 +130,7 @@ CREATE TABLE Accessorio (
 );
 
 CREATE TABLE Fornitore (
-    PIvaFornitore                 CHAR(11)       PRIMARY KEY,
+    PIvaFornitore                 CHAR(11)        PRIMARY KEY,
     NomeFornitore                 VARCHAR2(25)    UNIQUE NOT NULL,
     EmailFornitore                VARCHAR2(255)   UNIQUE NOT NULL,
     NumTelFornitore               VARCHAR2(14)    UNIQUE NOT NULL
@@ -138,7 +138,7 @@ CREATE TABLE Fornitore (
 
 CREATE TABLE Corriere (
     PIvaCorriere                  CHAR(11)       PRIMARY KEY,
-    NomeCorriere                  VARCHAR2(25)    UNIQUE NOT NULL
+    NomeCorriere                  VARCHAR2(25)   UNIQUE NOT NULL
 );
 
 CREATE TABLE CaricoMerce (
@@ -148,6 +148,7 @@ CREATE TABLE CaricoMerce (
     DataConsegna                  DATE           NOT NULL,
     PIvaFornitore                 CHAR(11)       NOT NULL,
     PIvaCorriere                  CHAR(11)       NOT NULL,
+    CONSTRAINT Check_Spedizione   CHECK (DataSpedizione < DataConsegna),
     CONSTRAINT FK1_caricomerce    FOREIGN KEY (PIvaFornitore) REFERENCES Fornitore (PIvaFornitore) ON DELETE SET NULL,
     CONSTRAINT FK2_caricomerce    FOREIGN KEY (PIvaCorriere) REFERENCES Corriere (PIvaCorriere) ON DELETE SET NULL
 );
