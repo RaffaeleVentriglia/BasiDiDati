@@ -65,9 +65,7 @@ SELECT
     Ac.CodiceABarre AS CodiceABarre, 
     SUM(QuantitaVendute) AS Quantita_Vendute, 
     MAX(NomeProdotto) AS Accessorio, 
-    MAX(PiattaformaA1) AS Piattaforma_1, 
-    MAX(PiattaformaA2) AS Piattaforma_2, 
-    MAX(PiattaformaA3) AS Piattaforma_3, 
+    MAX(PiattaformaA) AS Piattaforma, 
     MAX(PrezzoProdotto) AS Prezzo
 FROM Accessorio Ac 
 JOIN Prodotto Pr ON Ac.CodiceABarre = Pr.CodiceABarre 

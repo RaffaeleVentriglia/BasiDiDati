@@ -123,9 +123,7 @@ CREATE TABLE Videogioco (
 );
 
 CREATE TABLE Accessorio (
-    PiattaformaA1                 VARCHAR2(25)    NOT NULL,
-    PiattaformaA2                 VARCHAR2(25),
-    PiattaformaA3                 VARCHAR2(25),
+    PiattaformaA                  VARCHAR2(25)    NOT NULL,
     CodiceABarre                  CHAR(13),
     CONSTRAINT FK_accessorio      FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE CASCADE,
     CONSTRAINT PK_accessorio      PRIMARY KEY (CodiceABarre)

@@ -732,21 +732,21 @@ INSERT INTO Console VALUES ('1 TB', '5946997088647');
 INSERT INTO Console VALUES ('500 GB', '7572733277975');
 INSERT INTO Console VALUES ('128 GB', '4181906887663');
 
-INSERT INTO Accessorio VALUES ('PlayStation 5', NULL, NULL, '3286046443005');
-INSERT INTO Accessorio VALUES ('PlayStation 5', NULL, NULL, '2436541758173');
-INSERT INTO Accessorio VALUES ('Playstation 5', 'PlayStation 4', 'PC', '4697876716421');
-INSERT INTO Accessorio VALUES ('Nintendo Switch', NULL, NULL, '7998211279748');
-INSERT INTO Accessorio VALUES ('Nintendo Switch', NULL, NULL, '4818043864696');
-INSERT INTO Accessorio VALUES ('Nintendo Switch', NULL, NULL, '5946084403818');
-INSERT INTO Accessorio VALUES ('PC', 'PlayStation 5', 'XBo One', '8433307812551');
-INSERT INTO Accessorio VALUES ('PC', 'PlayStation 5', 'XBox Series S', '3931877761221');
-INSERT INTO Accessorio VALUES ('XBox Series X', 'XBox Series S', 'PC', '3726977003226');
-INSERT INTO Accessorio VALUES ('XBox Series X', 'XBox Series S', 'PC', '7665257537924');
-INSERT INTO Accessorio VALUES ('XBox One', 'XBox Series X', 'XBox Series S', '4914406507066');
-INSERT INTO Accessorio VALUES ('XBox Series X', 'XBox Series S', 'PC', '7653894118883');
-INSERT INTO Accessorio VALUES ('XBox Series X', 'XBox Series S', 'PC', '7920684151328');
-INSERT INTO Accessorio VALUES ('Nintendo Switch', NULL, NULL, '9527052293741');
-INSERT INTO Accessorio VALUES ('Nintendo Switch', NULL, NULL, '8277809882409');
+INSERT INTO Accessorio VALUES ('PlayStation 5', '3286046443005');
+INSERT INTO Accessorio VALUES ('PlayStation 5', '2436541758173');
+INSERT INTO Accessorio VALUES ('Playstation 5', '4697876716421');
+INSERT INTO Accessorio VALUES ('Nintendo Switch', '7998211279748');
+INSERT INTO Accessorio VALUES ('Nintendo Switch', '4818043864696');
+INSERT INTO Accessorio VALUES ('Nintendo Switch', '5946084403818');
+INSERT INTO Accessorio VALUES ('PC', '8433307812551');
+INSERT INTO Accessorio VALUES ('PC', '3931877761221');
+INSERT INTO Accessorio VALUES ('XBox Series X', '3726977003226');
+INSERT INTO Accessorio VALUES ('XBox Series X', '7665257537924');
+INSERT INTO Accessorio VALUES ('XBox One', '4914406507066');
+INSERT INTO Accessorio VALUES ('XBox Series X', '7653894118883');
+INSERT INTO Accessorio VALUES ('XBox Series X', '7920684151328');
+INSERT INTO Accessorio VALUES ('Nintendo Switch', '9527052293741');
+INSERT INTO Accessorio VALUES ('Nintendo Switch', '8277809882409');
 
 
 INSERT INTO Fornitore VALUES ('90264687962', 'photographoie', 'photographoie@gmail.com', '+353894060424');
