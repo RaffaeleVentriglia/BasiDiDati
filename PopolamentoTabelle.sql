@@ -21,6 +21,9 @@ INSERT INTO Credenziali VALUES ('siro.santoro', 'JaAnqYrmf9L3');
 -- SCAFFALISTI
 INSERT INTO Dipendente VALUES ('KQWMYW14M46T912E', 'Giacinto', 'Montanari', DATE '1974-01-06', 'Via Napoli', '23900', 'Lecco', NULL, 'Scaffalista');
 INSERT INTO Dipendente VALUES ('TYITHI81H72P241J', 'Alighieri', 'Gallo', DATE '1995-12-10', 'Via Cirino', '80126', 'Napoli', NULL, 'Scaffalista');
+INSERT INTO Dipendente VALUES ('RUOEGY74S93L352A', 'Raffaele', 'Cantelli', DATE '2001-11-11', 'Via della chiesa', '20121', 'Milano', NULL, 'Scaffalista');
+INSERT INTO Dipendente VALUES ('ACIEGL58A45H142K', 'Giuseppe', 'De Andrea', DATE '2001-10-05', 'Via Umberto', '07026', 'Olbia', NULL, 'Scaffalista');
+INSERT INTO Dipendente VALUES ('CWJZNR74L91A794Z', 'Antonio', 'Stanco', DATE '1998-12-01', 'Via Padova', '00189', 'Roma', NULL, 'Scaffalista');
 -- CASSIERI
 INSERT INTO Dipendente VALUES ('JQYGGW73B53M696N', 'Santo', 'Lombardo', DATE '2000-01-03', 'Via Karim', '94100', 'Enna', 'santo.lombardo', 'Cassiere');
 INSERT INTO Dipendente VALUES ('UWWKVF45W14S828U', 'Cleopatra', 'Amato', DATE '1990-11-23', 'Via Carmelo', '53100', 'Siena', 'cleopatra.amato', 'Cassiere');
