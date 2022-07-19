@@ -8,7 +8,7 @@ DECLARE
     etaDipendente NUMBER := (sysdate - :new.DNDipendente) / 365;
     Check_Eta EXCEPTION;
 BEGIN
-    IF etaDipendente < 18 AND etaDipendente > 60
+    IF etaDipendente NOT BETWEEN 18 AND 60
         THEN RAISE Check_Eta;
     END IF;
 EXCEPTION
