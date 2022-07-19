@@ -150,25 +150,20 @@ END;
 /
 
 
---    trigger che controlla le scadenze per ogni tipo di contratto
--- DA CONTROLLARE
+-- trigger che controlla le scadenze per ogni tipo di contratto
 
-CREATE OR REPLACE TRIGGER ContrattoIndeterminato
+CREATE OR REPLACE TRIGGER ContrattoValido
 BEFORE INSERT ON Contratto
 FOR EACH ROW
 DECLARE
     Check_Contratto EXCEPTION;
 BEGIN
-    IF :new.FineContratto > SYSDATE THEN
-        IF :new.TipoContratto = 'Indeterminato' AND :new.FineContratto IS NOT NULL
-            THEN RAISE Check_Contratto;
-        ELSIF (:new.TipoContratto = 'Part-time' OR :new.TipoContratto = 'Determinato') AND :new.FineContratto IS NULL
-            THEN RAISE Check_Contratto;
-        ELSIF :new.TipoContratto <> 'Indeterminato' AND :new.TipoContratto <> 'Determinato' AND :new.TipoContratto <> 'Part-time'
-            THEN RAISE Check_Contratto;
-        END IF;
+    IF :new.FineContratto > SYSDATE AND INITCAP(:new.TipoContratto) = 'Indeterminato' AND :new.FineContratto IS NOT NULL
+        THEN RAISE Check_Contratto;
+    ELSIF (INITCAP(:new.TipoContratto) = 'Part-Time' OR INITCAP(:new.TipoContratto) = 'Determinato') AND :new.FineContratto IS NULL
+        THEN RAISE Check_Contratto;
     END IF;
 EXCEPTION
     WHEN Check_Contratto
-        THEN RAISE_APPLICATION_ERROR(-20001, 'La scadenza inserita per questo contratto non è valida.');
+        THEN RAISE_APPLICATION_ERROR(-20001, 'La scadenza inserita per questo contratto non e'' valida.');
 END;

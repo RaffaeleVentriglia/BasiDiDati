@@ -1,38 +1,42 @@
 /*
     Procedura 1: Applicazione di un'offerta ad un dato prodotto
 */
+
 CREATE OR REPLACE PROCEDURE ApplicazioneOfferta(ProdottoDaScontare VARCHAR2, OffertaDaApplicare VARCHAR2) 
 IS 
     ScontoDaApplicare  Offerta_prodotto.ScontoApplicato%type; 
     InizioOfferta      Offerta.DataInizio%type; 
     FineOfferta        Offerta.DataFine%type;
-    OffertaScaduta    EXCEPTION;
+    Ex_Offerta         EXCEPTION;
+    Offerta_Scaduta    EXCEPTION;
 BEGIN 
     SELECT ScontoApplicato INTO ScontoDaApplicare FROM Offerta_Prodotto 
     WHERE CodiceOfferta = OffertaDaApplicare;
-    
+
     SELECT DataInizio, DataFine INTO InizioOfferta, FineOfferta FROM Offerta 
     WHERE CodiceOfferta = OffertaDaApplicare;
 
-    IF SYSDATE BETWEEN InizioOfferta AND FineOfferta THEN
+    IF SYSDATE BETWEEN InizioOfferta AND FineOfferta THEN 
         UPDATE Prodotto SET PrezzoProdotto = (PrezzoProdotto - (PrezzoProdotto * ScontoDaApplicare)) WHERE CodiceABarre = ProdottoDaScontare;
         dbms_output.put_line('Offerta applicata correttamente.');
         COMMIT;
     ELSE
-        RAISE OffertaScaduta;
+        RAISE Offerta_Scaduta;
     END IF;
 EXCEPTION
     WHEN NO_DATA_FOUND
         THEN RAISE_APPLICATION_ERROR(-20001, 'Offerta/Prodotto non valida/o.');
-    WHEN OffertaScaduta
+    WHEN Offerta_Scaduta
         THEN RAISE_APPLICATION_ERROR(-20001, 'Offerta scaduta.');
 END;
 /
 -- per le prove: exec ApplicazioneOfferta('3877265963667', '731');
 
+
 /*
     Procedura 2: Vendita dei prodotti
 */
+
 CREATE OR REPLACE PROCEDURE VenditaProdotti(ProdottoDaVendere VARCHAR2, QuantitaDaVendere NUMBER, NumeroScontrino VARCHAR2, NumeroCassa VARCHAR2)
 IS
     QuantitaProdottoTotali  NUMBER;
@@ -77,9 +81,7 @@ END;
 
 
 /*
-    Procedura 3: Il dipendente che ha fatto incassare di più nel mese precedente ottiene un aumento del 10%
-    il mese prossimo.
-    DA CONTROLLARE
+    Procedura 3: Il dipendente che ha fatto incassare di più nel mese precedente ottiene un aumento del 10% il mese prossimo.
 */
 
 CREATE OR REPLACE PROCEDURE CassierePiuProduttivo
@@ -93,7 +95,7 @@ BEGIN
     SELECT cs.CFDip, MAX(contr.CodiceContratto) INTO CF, UltimoContratto
     FROM Cassa cs JOIN Contratto contr ON cs.CFDip = contr.CFDip JOIN Scontrino scontr ON cs.NumCassa = scontr.NumCassa
     JOIN Scontrino_Prodotto scontr_prod ON scontr.NumScontrino = scontr_prod.NumScontrino JOIN Prodotto prod ON scontr_prod.CodiceABarre = prod.CodiceABarre 
-    WHERE (FineContratto IS NULL OR (ADD_MONTHS(SYSDATE, 1) BETWEEN InizioContratto AND FineContratto))AND TO_CHAR(ADD_MONTHS(SYSDATE, -1), 'MM-YYYY') = TO_CHAR(ADD_MONTHS(scontr.DataScontrino, -1), 'MM-YYYY')
+    WHERE (FineContratto IS NULL OR (ADD_MONTHS(SYSDATE, 1) BETWEEN InizioContratto AND FineContratto)) AND TO_CHAR(ADD_MONTHS(SYSDATE, -1), 'MM-YYYY') = TO_CHAR(ADD_MONTHS(scontr.DataScontrino, -1), 'MM-YYYY')
     GROUP BY cs.CFDip
     ORDER BY SUM(prod.PrezzoProdotto) * SUM(QuantitaVendute) DESC
     FETCH FIRST 1 ROW ONLY;
@@ -111,12 +113,13 @@ EXCEPTION
         THEN RAISE_APPLICATION_ERROR(-20001, 'Errore nei dati.');
 END;
 /
---exec DipendentePiuProduttivo;
+--exec CassierePiuProduttivo;
     
 
 /*
     Procedura 4: Creazione di una promozione del 50% dei videogiochi meno venduto sulla console meno venduta
 */
+
 CREATE OR REPLACE PROCEDURE OffertaMenoVenduto
 IS
 VideogiocoMenoVenduto   VARCHAR2(13);

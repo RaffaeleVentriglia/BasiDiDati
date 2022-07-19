@@ -18,11 +18,12 @@ CREATE TABLE Dipendente (
 );
 
 CREATE TABLE Contratto (
-    CodiceContratto               CHAR(7)        PRIMARY KEY,
-    TipoContratto                 VARCHAR2(20)    NOT NULL,
-    InizioContratto               DATE           NOT NULL,
+    CodiceContratto               CHAR(7)       PRIMARY KEY,
+    TipoContratto                 VARCHAR2(20)  NOT NULL,
+    InizioContratto               DATE          NOT NULL,
     FineContratto                 DATE,
-    CFDip                         CHAR(16)       NOT NULL,
+    CFDip                         CHAR(16)      NOT NULL,
+    CONSTRAINT Check_contratto    CHECK (INITCAP(TipoContratto) IN ('Indeterminato', 'Determinato', 'Part-Time')),
     CONSTRAINT FK_contratto       FOREIGN KEY (CFDip) REFERENCES Dipendente (CFDip) ON DELETE CASCADE
 );
 
