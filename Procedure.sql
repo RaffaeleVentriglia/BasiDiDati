@@ -122,10 +122,10 @@ END;
 
 CREATE OR REPLACE PROCEDURE OffertaMenoVenduto
 IS
-VideogiocoMenoVenduto   VARCHAR2(13);
-CodOfferta              VARCHAR2(3);
-OffertaProva            VARCHAR2(3);
-VideogiocoNonEsistente  EXCEPTION;
+    VideogiocoMenoVenduto   VARCHAR2(13);
+    CodOfferta              VARCHAR2(3);
+    OffertaProva            VARCHAR2(3);
+    VideogiocoNonEsistente  EXCEPTION;
 
 BEGIN
     SELECT MAX(vg.codiceabarre) INTO VideogiocoMenoVenduto
