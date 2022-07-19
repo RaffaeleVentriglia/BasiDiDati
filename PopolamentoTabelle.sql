@@ -1,21 +1,21 @@
-INSERT INTO Credenziali VALUES ('umberto.testa', '&Ts5Y*VJmL2o');
-INSERT INTO Credenziali VALUES ('doriana.bianchi', '3TVnpjQ&BGlo');
-INSERT INTO Credenziali VALUES ('marina.ferrara', 'mBn#s6X%RSiq');
-INSERT INTO Credenziali VALUES ('sesto.caputo', 'x&K@jzRLf*pz');
-INSERT INTO Credenziali VALUES ('nicoletta.monti', '%OZIC!AZANsg');
-INSERT INTO Credenziali VALUES ('osea.martini', 'SkRY#FHsH6tO');
-INSERT INTO Credenziali VALUES ('gelsomina.sala', 'EliSY!zGicA^');
-INSERT INTO Credenziali VALUES ('alberto.gentile', 'ZhI5c6eRY^c6');
-INSERT INTO Credenziali VALUES ('eufemia.marchetti', 'AgU6v7rTU?b2');
-INSERT INTO Credenziali VALUES ('mario.rossi', 'Bk!U^n5%*uxu');
-INSERT INTO Credenziali VALUES ('giuseppe.verde', '9Wh9Pe#1GsXh');
-INSERT INTO Credenziali VALUES ('maria.mazzini', 'W$lXkQrA*VNt');
-INSERT INTO Credenziali VALUES ('marta.porzio', 'lJ*yquH$fLBk');
-INSERT INTO Credenziali VALUES ('santo.lombardo', 'Y5tyQe9oF9uv');
-INSERT INTO Credenziali VALUES ('cleopatra.amato', '3Y5CCUBbIeMi');
-INSERT INTO Credenziali VALUES ('germano.damico', 'VQoPlxvcinZ5');
-INSERT INTO Credenziali VALUES ('umberto.russo', 'iCrPj70kINdb');
-INSERT INTO Credenziali VALUES ('siro.santoro', 'JaAnqYrmf9L3');
+INSERT INTO Credenziali VALUES ('umberto.testa', 'UIojNvD3L7s6');
+INSERT INTO Credenziali VALUES ('doriana.bianchi', 'FbZ8wGjnT6Bb');
+INSERT INTO Credenziali VALUES ('marina.ferrara', 'O4sXEiIEhICm');
+INSERT INTO Credenziali VALUES ('sesto.caputo', 'cdqr0gKVYuni');
+INSERT INTO Credenziali VALUES ('nicoletta.monti', 'yxHdwpHW0upX');
+INSERT INTO Credenziali VALUES ('osea.martini', 'PtW0wjpqQ1mL');
+INSERT INTO Credenziali VALUES ('gelsomina.sala', 'qYpCwrFQPTCr');
+INSERT INTO Credenziali VALUES ('alberto.gentile', 'BX7hmY4mds0E');
+INSERT INTO Credenziali VALUES ('eufemia.marchetti', 'GXzaO6Jy3QRc');
+INSERT INTO Credenziali VALUES ('mario.rossi', 'ILdn9ept6klg');
+INSERT INTO Credenziali VALUES ('giuseppe.verde', 'nhJynv08D55E');
+INSERT INTO Credenziali VALUES ('maria.mazzini', 'g03VBcf6YMea');
+INSERT INTO Credenziali VALUES ('marta.porzio', 'wQhO6rcY0rFv');
+INSERT INTO Credenziali VALUES ('santo.lombardo', 'LNo8FhpOKffj');
+INSERT INTO Credenziali VALUES ('cleopatra.amato', 'h6ITaOotiR6x');
+INSERT INTO Credenziali VALUES ('germano.damico', '67OidyvUIm1U');
+INSERT INTO Credenziali VALUES ('umberto.russo', 'h2Q9oESFMYFx');
+INSERT INTO Credenziali VALUES ('siro.santoro', 'Dm3ryOeZR6sN');
 
 
 -- SCAFFALISTI
