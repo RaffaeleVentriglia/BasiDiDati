@@ -3,9 +3,6 @@ CREATE USER Tecnico IDENTIFIED BY TecnicoDB;
 CREATE USER Cassiere IDENTIFIED BY CassiereNegozio;
 CREATE USER Magazziniere IDENTIFIED BY MagazziniereNegozio;
 
--- FORSE NON C'È BISOGNO DELL'UTENTE Scaffalista
--- CREATE USER Scaffalista IDENTIFIED BY 123;
-
 -- PERMESSI PER IL DIRIGENTE
 GRANT ALL PRIVILEGES TO Dirigente;
 
@@ -23,16 +20,8 @@ GRANT SELECT, INSERT, UPDATE ON Stipendio TO Tecnico;
 GRANT SELECT, INSERT, UPDATE ON Presenza TO Tecnico;
 GRANT SELECT, INSERT, UPDATE ON Ferie TO Tecnico;
 GRANT SELECT, INSERT, UPDATE ON Cassa TO Tecnico;
--- GRANT SELECT ON Scontrino TO Tecnico;
 GRANT SELECT ON Brand TO Tecnico;
--- GRANT SELECT, INSERT, UPDATE ON Prodotto TO Tecnico;
 GRANT SELECT, INSERT, UPDATE ON Offerta TO Tecnico;
--- GRANT SELECT ON Console TO Tecnico;
--- GRANT SELECT ON Videogioco TO Tecnico;
--- GRANT SELECT ON Accessorio TO Tecnico;
--- GRANT SELECT ON Fornitore TO Tecnico;
--- GRANT SELECT ON Corriere TO Tecnico;
--- GRANT SELECT, INSERT, UPDATE ON CaricoMerce TO Tecnico;
 
 -- PERMESSI PER IL CASSIERE
 GRANT SELECT ON Scontrino TO Cassiere;
