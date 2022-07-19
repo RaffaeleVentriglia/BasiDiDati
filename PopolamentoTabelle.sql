@@ -44,7 +44,7 @@ INSERT INTO Dipendente VALUES ('DOSLHP83T20C898N', 'Marta', 'Porzio', DATE '1999
 INSERT INTO Dipendente VALUES ('RQWPTO91I32V669K', 'Paolo', 'Gatti', DATE '1988-12-04', 'Via Roma', '35127', 'Padova', NULL, 'Tecnico');
 INSERT INTO Dipendente VALUES ('YTXDNA54L37A389P', 'Leone', 'Palmieri', DATE '1984-09-08', 'Via Napoli', '38122', 'Trento', NULL, 'Tecnico');
 -- DIRIGENTE
-INSERT INTO Dipendente VALUES ('UXETBB25N85F898Y', 'Osea', 'Martini', DATE '1960-06-15', 'Via Piererminio', '46100', 'Mantova', 'osea.martini', 'Dirigente');
+INSERT INTO Dipendente VALUES ('UXETBB25N85F898Y', 'Osea', 'Martini', DATE '1970-06-15', 'Via Piererminio', '46100', 'Mantova', 'osea.martini', 'Dirigente');
 
 
 -- CONTRATTI VALIDI
