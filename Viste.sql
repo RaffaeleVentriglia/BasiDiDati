@@ -88,3 +88,15 @@ FROM Cassa cs JOIN Scontrino scontr on cs.NumCassa = scontr.NumCassa
 JOIN Scontrino_Prodotto scontr_prod ON scontr.NumScontrino = scontr_prod.NumScontrino JOIN Prodotto prod ON scontr_prod.CodiceABarre = prod.CodiceABarre
 GROUP BY scontr_prod.NumScontrino, scontr_prod.DataScontrino
 ORDER BY scontr_prod.DataScontrino DESC;
+
+
+-- vista che permette di visualizzare i prodotti disponibili
+CREATE OR REPLACE VIEW ProdottiDisponibili AS
+SELECT
+    prod.CodiceABarre AS codice,
+    MAX(PrezzoProdotto) AS prezzo,
+    (SUM(QuantitaProdotto) - SUM(QuantitaVendute)) AS quantita_disponibili
+FROM CaricoMerce_Prodotto cp JOIN Prodotto prod ON cp.CodiceABarre = prod.CodiceABarre
+JOIN Scontrino_Prodotto sp ON cp.CodiceABarre = sp.CodiceABarre
+GROUP BY prod.CodiceABarre
+HAVING SUM(QuantitaProdotto) - SUM(QuantitaVendute) > 0;
