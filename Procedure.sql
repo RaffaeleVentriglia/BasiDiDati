@@ -146,6 +146,15 @@ BEGIN
     IF VideogiocoMenoVenduto IS NULL
         THEN RAISE VideogiocoNonEsistente;
     END IF;
+    /*LOOP
+CodOfferta := TO_CHAR(FLOOR(dbms_random.value(900, 999)));
+dbms_output.put_line(CodOfferta);
+OffertaProva := NULL;
+SELECT CodiceOfferta INTO OffertaProva FROM Offerta ←↩
+WHERE CodiceOfferta = CodOfferta;
+EXIT WHEN OffertaProva IS NULL;
+END LOOP;*/
+-- Se risolvi il problema del loop, rimuovi.
     CodOfferta := TO_CHAR(FLOOR(dbms_random.value(900, 999)));
 
     INSERT INTO Offerta VALUES (CodOfferta, SYSDATE, add_months(SYSDATE, 1));
