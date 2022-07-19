@@ -88,5 +88,3 @@ FROM Cassa cs JOIN Scontrino scontr on cs.NumCassa = scontr.NumCassa
 JOIN Scontrino_Prodotto scontr_prod ON scontr.NumScontrino = scontr_prod.NumScontrino JOIN Prodotto prod ON scontr_prod.CodiceABarre = prod.CodiceABarre
 GROUP BY scontr_prod.NumScontrino, scontr_prod.DataScontrino
 ORDER BY scontr_prod.DataScontrino DESC;
-
--- I TECNICI POSSONO ACCEDERE A TUTTO MENO CHE I DIPENDENTI, I CASSIERI SOLO AGLI SCONTRINI
