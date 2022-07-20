@@ -125,6 +125,7 @@ IS
     VideogiocoMenoVenduto   VARCHAR2(13);
     CodOfferta              VARCHAR2(3);
     OffertaProva            VARCHAR2(3);
+    Contatore               INTEGER;
     VideogiocoNonEsistente  EXCEPTION;
 
 BEGIN
@@ -132,11 +133,11 @@ BEGIN
     FROM scontrino_prodotto sc JOIN videogioco vg ON sc.codiceabarre = vg.codiceabarre JOIN prodotto pr ON vg.codiceabarre = pr.codiceabarre
     GROUP BY sc.CodiceABarre
     HAVING MAX(PiattaformaV) = (
-        SELECT MAX(nomeprodotto) as Console
+        SELECT MAX(nomeprodotto) AS Console
         FROM scontrino_prodotto sc JOIN console con ON sc.codiceabarre = con.codiceabarre JOIN prodotto pr ON con.codiceabarre = pr.codiceabarre
         GROUP BY sc.codiceabarre
-        HAVING sum(quantitavendute) = (
-            SELECT min(sum(quantitavendute))
+        HAVING SUM(quantitavendute) = (
+            SELECT MIN(SUM(quantitavendute))
             FROM scontrino_prodotto sc JOIN console con ON sc.codiceabarre = con.codiceabarre
             GROUP BY con.codiceabarre
         )
@@ -146,20 +147,20 @@ BEGIN
     IF VideogiocoMenoVenduto IS NULL
         THEN RAISE VideogiocoNonEsistente;
     END IF;
-    /*LOOP
-    CodOfferta := TO_CHAR(FLOOR(dbms_random.value(900, 999)));
-    dbms_output.put_line(CodOfferta);
-    OffertaProva := NULL;
-    SELECT CodiceOfferta INTO OffertaProva FROM Offerta ←↩
-    WHERE CodiceOfferta = CodOfferta;
-    EXIT WHEN OffertaProva IS NULL;
-    END LOOP;*/
--- Se risolvi il problema del loop, rimuovi.
-    CodOfferta := TO_CHAR(FLOOR(dbms_random.value(900, 999)));
+
+    SELECT COUNT(*) INTO Contatore FROM Offerta
+    WHERE CodiceOfferta BETWEEN '900' AND '998';
+    IF Contatore = 0
+        THEN CodOfferta := '900';
+    ELSE
+        SELECT MAX(CodiceOfferta) INTO OffertaProva FROM Offerta
+        WHERE CodiceOfferta BETWEEN '900' AND '998';
+        CodOfferta := TO_CHAR(OffertaProva + 1);
+    END IF;
 
     INSERT INTO Offerta VALUES (CodOfferta, SYSDATE, add_months(SYSDATE, 1));
     COMMIT;
-    INSERT INTO Offerta_Prodotto VALUES(VideogiocoMenoVenduto, CodOfferta, 0.50);
+    INSERT INTO Offerta_Prodotto VALUES (VideogiocoMenoVenduto, CodOfferta, 0.50);
     COMMIT;
 
 EXCEPTION
