@@ -17,7 +17,8 @@ EXCEPTION
 END;
 /
 
---    il dipendente non può iniziare un nuovo turno o presenza, senza che
+
+--    il dipendente non può iniziare un nuovo turno senza che
 --    quello precedente sia finito
 
 CREATE OR REPLACE TRIGGER Controllo_Turno
@@ -37,6 +38,7 @@ EXCEPTION
 END;
 /
 
+
 --    il dipendente non può effettuare più di 9 ore di lavoro, considerando
 --    anche l'ora di pranzo
 
@@ -55,6 +57,7 @@ EXCEPTION
         THEN RAISE_APPLICATION_ERROR(-20001, 'Ore di lavoro superate');
 END;
 /
+
 
 --    per una politica aziendale, il negozio apre alle ore 9 e chiude alle ore 21, e quindi
 --    la presenza di un dipendente non può andare oltre questi orari
@@ -76,8 +79,9 @@ EXCEPTION
 END;
 /
 
---    solo i cassieri, i magazzinieri e l'amministratore hanno accesso al portale del magazzino,
---    quindi uno scaffalista non ha credenziali di accesso
+
+--    tra tutti i ruoli, solamente gli scaffalisti non hanno accesso
+--    al portale, e quindi non devono avere le credenziali
 
 CREATE OR REPLACE TRIGGER AccessoPortale
 BEFORE INSERT ON Dipendente
@@ -93,6 +97,7 @@ EXCEPTION
         THEN RAISE_APPLICATION_ERROR(-20001, 'Il dipendente non ha accesso al portale');
 END;
 /
+
 
 --    controllare se lo stipendio è sufficiente in base al ruolo del dipendente
 
@@ -130,6 +135,8 @@ EXCEPTION
         THEN raise_application_error(-20001,'Stipendio inferiore a quello minimo per questa data mansione.');
 END;
 /
+
+
 --    controllo del massimo numero di dipendenti
 
 CREATE OR REPLACE TRIGGER MaxDipendenti

@@ -1,6 +1,4 @@
-/*
-    Procedura 1: Applicazione di un'offerta ad un dato prodotto
-*/
+--    Procedura 1: Applicazione di un'offerta ad un dato prodotto
 
 CREATE OR REPLACE PROCEDURE ApplicazioneOfferta(ProdottoDaScontare VARCHAR2, OffertaDaApplicare VARCHAR2) 
 IS 
@@ -33,9 +31,7 @@ END;
 -- per le prove: exec ApplicazioneOfferta('3877265963667', '731');
 
 
-/*
-    Procedura 2: Vendita dei prodotti
-*/
+--    Procedura 2: Vendita dei prodotti
 
 CREATE OR REPLACE PROCEDURE VenditaProdotti(ProdottoDaVendere VARCHAR2, QuantitaDaVendere NUMBER, NumeroScontrino VARCHAR2, NumeroCassa VARCHAR2)
 IS
@@ -80,9 +76,7 @@ END;
 -- per le prove: exec VenditaProdotti('3877265963667', 1, '020', '01');
 
 
-/*
-    Procedura 3: Il dipendente che ha fatto incassare di più nel mese precedente ottiene un aumento del 10% il mese prossimo.
-*/
+--    Procedura 3: Il dipendente che ha fatto incassare di più nel mese precedente ottiene un aumento del 10% il mese prossimo.
 
 CREATE OR REPLACE PROCEDURE CassierePiuProduttivo
 IS
@@ -116,15 +110,13 @@ END;
 --exec CassierePiuProduttivo;
     
 
-/*
-    Procedura 4: Creazione di una promozione del 50% dei videogiochi meno venduto sulla console meno venduta
-*/
+--    Procedura 4: Creazione di una promozione del 50% dei videogiochi meno venduto sulla console meno venduta
 
 CREATE OR REPLACE PROCEDURE OffertaMenoVenduto
 IS
     VideogiocoMenoVenduto   VARCHAR2(13);
     CodOfferta              VARCHAR2(3);
-    Contatore              INTEGER;
+    Contatore               INTEGER;
     VideogiocoNonEsistente  EXCEPTION;
 
 BEGIN

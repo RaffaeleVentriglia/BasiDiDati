@@ -92,12 +92,12 @@ CREATE TABLE Offerta (
 
 CREATE TABLE Offerta_Prodotto (
     CodiceABarre                  CHAR(13),
-    CodiceOfferta                     CHAR(3),
-    ScontoApplicato                   NUMBER(3,2),
+    CodiceOfferta                 CHAR(3),
+    ScontoApplicato               NUMBER(3,2),
     CONSTRAINT Check_Sconto       CHECK (ScontoApplicato BETWEEN 0.01 AND 0.90),
     CONSTRAINT PK_OffProd         PRIMARY KEY (CodiceABarre, CodiceOfferta),
-    CONSTRAINT FK_Off              FOREIGN KEY (CodiceOfferta) REFERENCES Offerta (CodiceOfferta) ON DELETE SET NULL,
-    CONSTRAINT FK_Prod              FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE SET NULL
+    CONSTRAINT FK_Off             FOREIGN KEY (CodiceOfferta) REFERENCES Offerta (CodiceOfferta) ON DELETE SET NULL,
+    CONSTRAINT FK_Prod            FOREIGN KEY (CodiceABarre) REFERENCES Prodotto (CodiceABarre) ON DELETE SET NULL
 );
 
 CREATE TABLE Scontrino_Prodotto (

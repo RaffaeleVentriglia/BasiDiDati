@@ -11,6 +11,7 @@ FROM Dipendente Dip JOIN Contratto Contr ON Dip.CFDip = Contr.CFDip
 WHERE FineContratto IS NULL OR SYSDATE BETWEEN InizioContratto AND FineContratto;
 /
 
+
 -- vista che permette di visualizzare i dipendenti in ferie
 
 CREATE OR REPLACE VIEW DipendentiInFerie AS
@@ -24,6 +25,7 @@ SELECT
 FROM Dipendente Dip JOIN Ferie Fr ON Dip.CFDip = Fr.CFDip
 WHERE SYSDATE BETWEEN InizioFerie AND FineFerie;
 /
+
 
 -- vista che permette di visualizzare i primi 10 videogiochi più venduti
 
@@ -41,6 +43,7 @@ ORDER BY SUM(QuantitaVendute) DESC
 FETCH FIRST 10 ROW ONLY;
 /
 
+
 -- vista che permette di visualizzare le prime 10 console più vendute
 
 CREATE OR REPLACE VIEW ClassificaConsole AS
@@ -57,6 +60,7 @@ GROUP BY Cn.CodiceABarre
 ORDER BY SUM(QuantitaVendute) DESC
 FETCH FIRST 10 ROW ONLY;
 /
+
 
 -- vista che permette di visualizzare i primi 10 accessori più venduti
 
@@ -91,6 +95,7 @@ ORDER BY scontr_prod.DataScontrino DESC;
 
 
 -- vista che permette di visualizzare i prodotti disponibili
+
 CREATE OR REPLACE VIEW ProdottiDisponibili AS
 SELECT
     prod.CodiceABarre AS codice,
