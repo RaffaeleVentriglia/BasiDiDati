@@ -124,8 +124,7 @@ CREATE OR REPLACE PROCEDURE OffertaMenoVenduto
 IS
     VideogiocoMenoVenduto   VARCHAR2(13);
     CodOfferta              VARCHAR2(3);
-    OffertaProva            VARCHAR2(3);
-    Contatore               INTEGER;
+    Contatore              INTEGER;
     VideogiocoNonEsistente  EXCEPTION;
 
 BEGIN
@@ -133,7 +132,7 @@ BEGIN
     FROM scontrino_prodotto sc JOIN videogioco vg ON sc.codiceabarre = vg.codiceabarre JOIN prodotto pr ON vg.codiceabarre = pr.codiceabarre
     GROUP BY sc.CodiceABarre
     HAVING MAX(PiattaformaV) = (
-        SELECT MAX(nomeprodotto) AS Console
+        SELECT MAX(nomeprodotto) as Console
         FROM scontrino_prodotto sc JOIN console con ON sc.codiceabarre = con.codiceabarre JOIN prodotto pr ON con.codiceabarre = pr.codiceabarre
         GROUP BY sc.codiceabarre
         HAVING SUM(quantitavendute) = (
@@ -149,18 +148,17 @@ BEGIN
     END IF;
 
     SELECT COUNT(*) INTO Contatore FROM Offerta
-    WHERE CodiceOfferta BETWEEN '900' AND '998';
+    WHERE CodiceOfferta BETWEEN '800' AND '998';
     IF Contatore = 0
-        THEN CodOfferta := '900';
-    ELSE
-        SELECT MAX(CodiceOfferta) INTO OffertaProva FROM Offerta
-        WHERE CodiceOfferta BETWEEN '900' AND '998';
-        CodOfferta := TO_CHAR(OffertaProva + 1);
+        THEN CodOfferta := '800';
+    ELSIF
+        SELECT MAX(CodiceOfferta) + 1 INTO CodOfferta FROM Offerta
+        WHERE CodiceOfferta BETWEEN '800' AND '998';
     END IF;
 
     INSERT INTO Offerta VALUES (CodOfferta, SYSDATE, add_months(SYSDATE, 1));
     COMMIT;
-    INSERT INTO Offerta_Prodotto VALUES (VideogiocoMenoVenduto, CodOfferta, 0.50);
+    INSERT INTO Offerta_Prodotto VALUES(VideogiocoMenoVenduto, CodOfferta, 0.50);
     COMMIT;
 
 EXCEPTION
